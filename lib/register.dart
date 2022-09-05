@@ -29,36 +29,42 @@ class _RegisterState extends State<Register> {
         width: screenize.width,
         decoration:  const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/register.jpg"),
+            image: AssetImage("assets/images/bg-medapp.png"),
             fit: BoxFit.fill,
           )
         ),
         padding: EdgeInsets.only(
-          left: screenize.width * 0.15,
-          top: screenize.height * 0.13,
-          bottom: screenize.height * 0.13
+          left: screenize.width * 0.13,
+          top: screenize.height * 0.05,
+          bottom: screenize.height * 0.05
         ),
         child: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 10, 116, 255),
-                borderRadius: BorderRadius.circular(20),
-              ),
-              width: screenize.width * 0.36,
-              height: screenize.height * 0.9,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: screenize.height*0.15),
+              // child: Container(
+              //   decoration: BoxDecoration(
+              //     color: const Color.fromARGB(255, 10, 116, 255),
+              //     borderRadius: BorderRadius.circular(20),
+              //   ),
+              //   width: screenize.width * 0.36,
+              //   height: screenize.height * 0.7,
+              //   child: Image.asset(
+              //     "assets/logo/logo-eksad.png",
+              //   ),
+              // ),
               child: Image.asset(
                   "assets/logo/logo-eksad.png",
               ),
             ),
             Padding(
                 padding: EdgeInsets.only(
-                  left: screenize.width * 0.33,
-                  top: screenize.height * 0.07
+                  left: screenize.width * 0.35,
                 ),
               child: Container(
-                width: screenize.width * 0.3,
-                height: screenize.height * 0.6,
+                width: screenize.width * 0.30,
+                height: screenize.height * 1,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -82,18 +88,20 @@ class _RegisterState extends State<Register> {
                   child: Container(
                     padding: EdgeInsets.only(
                       left: screenize.width * 0.045,
-                      top: screenize.height * 0.02
+                      top: screenize.height * 0.01
                     ),
                     width: screenize.width * 0.36,
-                    height: screenize.height * 0.8,
+                    height: screenize.height * 1,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        Spacer(),
                         Container(
                           padding: EdgeInsets.only(
-                            left: screenize.width * 0.055
+                            left: screenize.width * 0.05
                           ),
-                          height: screenize.width * 0.02,
+                          height: screenize.width * 0.03,
                           child: Image.asset("assets/logo/medapp-logo.png"),
                         ),
                         const SizedBox(height: 20,),
@@ -107,7 +115,8 @@ class _RegisterState extends State<Register> {
                             const SizedBox(
                               width: 10,
                             ),
-                            const Text("Nama"),
+                            const Text("Nama",
+                            ),
                           ],
                         ),
                         const SizedBox(height: 5,),
@@ -126,6 +135,12 @@ class _RegisterState extends State<Register> {
                                     borderRadius: BorderRadius.circular(5.0),
                                   )
                                 ),
+                                validator: (value){
+                                  if (value == null || value.isEmpty){
+                                    return "Nama tidak boleh kosong";
+                                  }
+                                  return null;
+                                },
                               ),
                             )
                           ],
@@ -154,6 +169,12 @@ class _RegisterState extends State<Register> {
                               child: TextFormField(
                                 controller: emailController,
                                 textAlign: TextAlign.start,
+                                validator: (value){
+                                  if (value == null || value.isEmpty){
+                                    return "Email tidak boleh kosong";
+                                  }
+                                  return null;
+                                },
                                 decoration: InputDecoration(
                                     labelText: "Email Valid",
                                     hintStyle: const TextStyle(),
@@ -189,6 +210,12 @@ class _RegisterState extends State<Register> {
                               child: TextFormField(
                                 controller: phoneController,
                                 textAlign: TextAlign.start,
+                                validator: (value){
+                                  if (value == null || value.isEmpty){
+                                    return "Nomor handphone tidak boleh kosong";
+                                  }
+                                  return null;
+                                },
                                 decoration: InputDecoration(
                                     labelText: "Nomor Handphone",
                                     hintStyle: const TextStyle(),
@@ -223,6 +250,12 @@ class _RegisterState extends State<Register> {
                               child: TextFormField(
                                 controller: usernameController,
                                 textAlign: TextAlign.start,
+                                validator: (value){
+                                  if (value == null || value.isEmpty){
+                                    return "Username tidak boleh kosong";
+                                  }
+                                  return null;
+                                },
                                 decoration: InputDecoration(
                                     labelText: "Username",
                                     hintStyle: const TextStyle(),
@@ -256,6 +289,12 @@ class _RegisterState extends State<Register> {
                           child: TextFormField(
                             controller: pwController,
                             textAlign: TextAlign.start,
+                            validator: (value){
+                              if (value == null || value.isEmpty){
+                                return "Nama tidak boleh kosong";
+                              }
+                              return null;
+                            },
                             obscureText: _isObscure,
                             decoration: InputDecoration(
                               labelText: "Password",
@@ -288,6 +327,7 @@ class _RegisterState extends State<Register> {
                               width: screenize.width * 0.09,
                               child: ElevatedButton(
                                 onPressed: (){
+                                  Navigator.pushNamed(context, '/login');
                                 },
                                 child: const Text("LOGIN"),
                               ),
@@ -333,7 +373,7 @@ class _RegisterState extends State<Register> {
                           ],
                         ),
                         const Spacer(
-                          flex: 7,
+                          flex: 4,
                         )
                       ],
                     ),

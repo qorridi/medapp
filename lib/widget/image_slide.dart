@@ -73,7 +73,7 @@ class VerticalSlider extends StatelessWidget {
                 aspectRatio: 2.0,
                 enlargeCenterPage: true,
                 scrollDirection: Axis.horizontal,
-                autoPlay: true,
+                autoPlay: false,
               ),
               items: imageSliders,
             ),

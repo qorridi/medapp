@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:mcs_flutter/widget/botton.dart';
 // import 'package:mcs_flutter/const/conts.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:medapp_eksad/api/contact_api.dart';
 import 'package:medapp_eksad/widget/button_color.dart';
 
@@ -65,7 +63,7 @@ class ContactUs2 extends StatelessWidget {
                     flex: 1,
                   ),
                   SizedBox(
-                    height: screenSize.height * 0.3,
+                    height: screenSize.height * 0.22,
                     child: Text(
                         'Go for the one who knows what they are doing, those who you share values with, '
                         'and those who will celebrate your success, and help you win over your biggest challenges. '
