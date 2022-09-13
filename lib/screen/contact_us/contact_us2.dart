@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:mcs_flutter/widget/botton.dart';
 // import 'package:mcs_flutter/const/conts.dart';
+import 'package:http/http.dart' as http;
 import 'package:medapp_eksad/api/contact_api.dart';
 import 'package:medapp_eksad/widget/button_color.dart';
 
@@ -250,7 +253,7 @@ class ContactUs2 extends StatelessWidget {
                       style: Btn_Submit(),
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
-                          final response = await savecontact(
+                          final response = await SendEmail(
                               nameController.value.text,
                               emailController.value.text,
                               phoneController.value.text,
@@ -287,5 +290,29 @@ class ContactUs2 extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future SendEmail(
+      String name, String phone, String email, String message) async {
+    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+    const serviceId = 'service_7wwup8c';
+    const templateId = 'template_4u8rbur';
+    const userId = 'bzSFpP9flgDHE1D8dDLOP';
+    final response = await http.post(url,
+        headers: {
+          'Content-Type': 'application/json'
+        }, //This line makes sure it works for all platforms.
+        body: json.encode({
+          'service_id': serviceId,
+          'template_id': templateId,
+          'user_id': userId,
+          'template_params': {
+            'from_name': name,
+            'from_phone': phone,
+            'to_email': email,
+            'message': message
+          }
+        }));
+    return response.statusCode;
   }
 }

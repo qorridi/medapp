@@ -8,21 +8,19 @@ void setPageTitle(String title, BuildContext context) {
   ));
 }
 
-class login extends StatefulWidget {
-  const login({Key? key}) : super(key: key);
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
-  State<login> createState() => _loginState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _loginState extends State<login> {
+class _SignInState extends State<SignIn> {
   bool _isObscure = true;
 
   final formKey = GlobalKey<FormState>();
-  String _usmail = '';
-  String _uspswd = '';
-  final TextEditingController _editingController = TextEditingController();
-  final TextEditingController _editingController2 = TextEditingController();
+  final TextEditingController _usernamecontroller = TextEditingController();
+  final TextEditingController _passwordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +121,7 @@ class _loginState extends State<login> {
                               height: 40,
                               width: screenSize.width * 0.2,
                               child: TextFormField(
-                                controller: _editingController,
+                                controller: _usernamecontroller,
                                 textAlign: TextAlign.start,
                                 decoration: InputDecoration(
                                   labelText: "Enter Your Email",
@@ -134,7 +132,7 @@ class _loginState extends State<login> {
                                 ),
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    _editingController.clear();
+                                    _usernamecontroller.clear();
                                     return "please enter your email address";
                                   } else if (!RegExp(r'\S+@\S+\.\S+')
                                       .hasMatch(value)) {
@@ -143,7 +141,6 @@ class _loginState extends State<login> {
                                     return null;
                                   }
                                 },
-                                onChanged: (value) => _usmail = value,
                               ),
                             ),
                             const Spacer(
@@ -169,7 +166,7 @@ class _loginState extends State<login> {
                               height: 40,
                               width: screenSize.width * 0.2,
                               child: TextFormField(
-                                controller: _editingController2,
+                                controller: _passwordcontroller,
                                 textAlign: TextAlign.start,
                                 obscureText: _isObscure,
                                 decoration: InputDecoration(
@@ -192,14 +189,13 @@ class _loginState extends State<login> {
                                 ),
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    _editingController2.clear();
+                                    _passwordcontroller.clear();
                                     return 'This field is required';
                                   } else if (value.trim().length < 8) {
                                     return 'Password must be at least 8 characters in length';
                                   }
                                   return null;
                                 },
-                                onChanged: (value) => _uspswd = value,
                               ),
                             ),
                             const Spacer(
@@ -225,8 +221,8 @@ class _loginState extends State<login> {
                                   width: screenSize.width * 0.08,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (_usmail == 'admin@admin.com' &&
-                                          _uspswd != 'administrator') {
+                                      if (_usernamecontroller.value.text == 'admin@admin.com' &&
+                                          _passwordcontroller.value.text != 'administrator') {
                                         showDialog<String>(
                                           context: context,
                                           builder: (BuildContext context) =>
@@ -243,8 +239,8 @@ class _loginState extends State<login> {
                                             ],
                                           ),
                                         );
-                                      } else if (_usmail == 'client@client.com' &&
-                                          _uspswd != 'clientpage') {
+                                      } else if (_usernamecontroller.value.text == 'client@client.com' &&
+                                          _passwordcontroller.value.text != 'clientpage') {
                                         showDialog<String>(
                                           context: context,
                                           builder: (BuildContext context) =>
@@ -261,11 +257,11 @@ class _loginState extends State<login> {
                                             ],
                                           ),
                                         );
-                                      } else if (_usmail == 'admin@admin.com' &&
-                                          _uspswd == 'administrator') {
+                                      } else if (_usernamecontroller.value.text == 'admin@admin.com' &&
+                                          _passwordcontroller.value.text == 'administrator') {
                                         Navigator.pushNamed(context, '/admin');
-                                      } else if (_usmail == 'client@client.com' &&
-                                          _uspswd == 'clientpage') {
+                                      } else if (_usernamecontroller.value.text == 'client@client.com' &&
+                                          _passwordcontroller.value.text == 'clientpage') {
                                         Navigator.pushNamed(context, '/client');
                                       } else {
                                         showDialog<String>(

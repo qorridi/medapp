@@ -241,57 +241,61 @@ class _SmallHome3State extends State<SmallHome3> {
             ),
           ),
 
-          SizedBox(
-            width: screenSize.width,
-            height: screenSize.height * 0.35,
-            child: Row(
-              children: [
-                Container(
-                  width: screenSize.width*0.4,
+          // SizedBox(
+          //   width: screenSize.width,
+          //   height: screenSize.height * 0.35,
+          //   child: Row(
+          //     children: [
+          //       Container(
+          //         width: screenSize.width*0.4,
+          //
+          //         height: screenSize.height * 0.55,
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.center,
+          //           mainAxisAlignment: MainAxisAlignment.center,
+          //           children: [
+          //             Container(
+          //                 width: screenSize.width * 0.4,
+          //                 child: Animasi_Kiri_Kanan(
+          //                     screenSize: screenSize,
+          //                     widget: Image.asset(
+          //                       'assets/icons/why4.png',
+          //                       height: 60,
+          //                       width: 60,
+          //                     ))),
+          //             SizedBox(height: 20,),
+          //             Container(
+          //               padding: EdgeInsets.symmetric(horizontal: 10),
+          //               width: 200,
+          //               height: 40,
+          //               child: const Text(
+          //                 'DRUG DELIVERY',
+          //                 style: TextStyle(
+          //                     color: Colors.blueAccent,
+          //                     fontSize: 15,
+          //                     letterSpacing: 1.1,
+          //                     fontWeight: FontWeight.w600),
+          //                 textAlign: TextAlign.center,
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //       Container(
+          //           width: screenSize.width*0.5,
+          //
+          //           height: screenSize.height * 0.55,
+          //           child: const Animasi_Kanan_Kiri_Justify(
+          //               judul:
+          //               'Drug delivery works in collaboration with goods delivery service providers '
+          //                   'which are currently developing fast.',))
+          //     ],
+          //   ),
+          // ),
 
-                  height: screenSize.height * 0.55,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                          width: screenSize.width * 0.4,
-                          child: Animasi_Kiri_Kanan(
-                              screenSize: screenSize,
-                              widget: Image.asset(
-                                'assets/icons/why4.png',
-                                height: 60,
-                                width: 60,
-                              ))),
-                      SizedBox(height: 20,),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        width: 200,
-                        height: 40,
-                        child: const Text(
-                          'DRUG DELIVERY',
-                          style: TextStyle(
-                              color: Colors.blueAccent,
-                              fontSize: 15,
-                              letterSpacing: 1.1,
-                              fontWeight: FontWeight.w600),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                    width: screenSize.width*0.5,
 
-                    height: screenSize.height * 0.55,
-                    child: const Animasi_Kanan_Kiri_Justify(
-                        judul:
-                        'Drug delivery works in collaboration with goods delivery service providers '
-                            'which are currently developing fast.',))
-              ],
-            ),
-          ),
+
+
           SizedBox(
             width: screenSize.width,
             height: screenSize.height * 0.35,

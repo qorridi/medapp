@@ -10,17 +10,17 @@ class DrawerMedApp extends StatelessWidget {
       // backgroundColor: Color.fromARGB(255, 76, 154, 231),
       width: 200,
       child: Container(
-        decoration: BoxDecoration(
-          color: Colors.blue,
-          gradient: LinearGradient(
-            colors: [
-              Colors.blue,
-              Colors.blue.withOpacity(0.0),
-
-            ],
-            stops: [0.0, 1.0],
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   color: Colors.blue,
+        //   gradient: LinearGradient(
+        //     colors: [
+        //       Colors.blue,
+        //       Colors.blue.withOpacity(0.0),
+        //
+        //     ],
+        //     stops: [0.0, 1.0],
+        //   ),
+        // ),
         child: Column(
           children: [
             const SizedBox(height: 50,),

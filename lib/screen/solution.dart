@@ -43,6 +43,7 @@ class _SolutionsState extends State<Solutions> {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
+      floatingActionButton: WAChat(),
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBarKecil()
           : AppbarHomeLarge(screenSize, context, Colors.black, Colors.black,
@@ -63,7 +64,6 @@ class _SolutionsState extends State<Solutions> {
                   button: ButtonSolution(context),
                 ),
                 OurSolution2(),
-                OurSolution3(),
                 ContactUs2(),
                 Footer(),
               ],
@@ -74,7 +74,7 @@ class _SolutionsState extends State<Solutions> {
   ElevatedButton ButtonSolution(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        _scrollToIndex(1500);
+        _scrollToIndex(550);
       },
       style: DefaultColors(),
       // ElevatedButton.styleFrom(
@@ -85,7 +85,7 @@ class _SolutionsState extends State<Solutions> {
       //   // shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
       // ),
       child: const Text(
-        'FREE DEMO',
+        'Our Catalog',
         style: TextStyle(
             fontSize: 19,
             fontWeight: FontWeight.w500,

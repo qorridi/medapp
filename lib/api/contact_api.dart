@@ -5,7 +5,7 @@ import 'package:medapp_eksad/model/contact_model.dart';
 
 Future savecontact(nama, email, nohp, message) async {
   final response = await http.post(
-      Uri.parse('http://10.107.121.210:8081/medapp/v1/api/contact/save'),
+      Uri.parse('http://10.107.223.156:8081/medapp/v1/api/contact/save'),
       body: jsonEncode({
         "nama": nama,
         "email": email,
@@ -24,7 +24,7 @@ Future savecontact(nama, email, nohp, message) async {
 
 Future<List<contact>> showcontact() async {
   var response = await http
-      .get(Uri.parse('http://10.3.4.231:8082/medapp/v1/api/contact/get'));
+      .get(Uri.parse('http://10.107.223.156:8082/medapp/v1/api/contact/get'));
   var resultJson = jsonDecode(response.body)['data'];
   List<contact> contactlist = await resultJson
   .map<contact>((json) => contact.fromJson(json))

@@ -234,7 +234,7 @@ class _ContactUs2_smallState extends State<ContactUs2_small> {
                             style: Btn_Submit(),
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                final response = await savecontact(
+                                final response = await SendEmail(
                                     nameController.value.text,
                                     emailController.value.text,
                                     phoneController.value.text,
@@ -267,6 +267,30 @@ class _ContactUs2_smallState extends State<ContactUs2_small> {
             ]),
       ),
     );
+  }
+
+  Future SendEmail(
+      String name, String phone, String email, String message) async {
+    final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
+    const serviceId = 'service_7wwup8c';
+    const templateId = 'template_4u8rbur';
+    const userId = 'bzSFpP9flgDHE1D8dDLOP';
+    final response = await http.post(url,
+        headers: {
+          'Content-Type': 'application/json'
+        }, //This line makes sure it works for all platforms.
+        body: json.encode({
+          'service_id': serviceId,
+          'template_id': templateId,
+          'user_id': userId,
+          'template_params': {
+            'from_name': name,
+            'from_phone': phone,
+            'to_email': email,
+            'message': message
+          }
+        }));
+    return response.statusCode;
   }
 }
 

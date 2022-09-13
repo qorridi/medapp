@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medapp_eksad/widget/button_color.dart';
 
 class Home4 extends StatelessWidget {
   const Home4({Key? key}) : super(key: key);
@@ -9,13 +8,13 @@ class Home4 extends StatelessWidget {
     var ScreenSize = MediaQuery.of(context).size;
     return Container(
       width: ScreenSize.width,
-      height: ScreenSize.height * 0.98,
+      height: ScreenSize.height * 1,
       color: Colors.white,
       child: Container(
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.fromLTRB(160, 90, 160, 90),
+        padding: const EdgeInsets.all(20),
+        margin: const EdgeInsets.fromLTRB(160, 90, 160, 90),
         width: ScreenSize.width * 0.20,
-        height: ScreenSize.height * 0.90,
+        height: ScreenSize.height * 1,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           //color: Color.fromARGB(200, 9, 47, 171),
@@ -33,118 +32,138 @@ class Home4 extends StatelessWidget {
             ),
           ],
         ),
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: ScreenSize.width * 0.36,
-                height: ScreenSize.height * 0.69,
-                color: Colors.blue[900],
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  padding: EdgeInsets.all(30),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(height: 40,),
-                      Row(
-                        children: [
-                          Text("Mobile & Web Apps",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 34
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.all(2),
+              width: ScreenSize.width * 0.4,
+              height: ScreenSize.height * 0.95,
+              //color: Colors.blue[900],
+
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  SizedBox(
+                    height: ScreenSize.height*0.08,
+                    width: ScreenSize.width,
+                    child: Text("Media used by MedApp",
+                      style: TextStyle(
+                        color: Colors.white,
+                         fontSize: 27,
+                          fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(height: 30,),
-                      Row(
-                        children: [
-                          Container(
-                              height: 100,
-                              width: ScreenSize.width *0.30,
-                              child: Text(
-                                  "Now this application is available on your smartphone, Download now !",
-                                style: TextStyle(
-                                  fontSize: 21,
-                                  height: 1.3,
-                                  letterSpacing: 1.3,
-                                  color: Colors.white
-                                ),
-                              )
-                          ),
-                        ],
-                      ),
-                      // SizedBox(height: 10,),
-                      Row(
-                        children: [
-                          Container(
-                            height : 50,
-                            width : 200,
-                            child: ElevatedButton(
-                              onPressed: (){},
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.blue[900],
-                                onSurface: Colors.white,
-                                side: BorderSide(
-                                  color: Colors.white
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(30)
-                                  ),
-                                ),
-                              ),
-                              child: Text(
-                                  "Download",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  letterSpacing: 2
-                                ),
-                              ),
-                            ),
-                            // child: ElevatedButton(
-                            //     onPressed: (){},
-                            //   style: DefaultColors(),
-                            //   // ElevatedButton.styleFrom(
-                            //   //   primary: Colors.blue,
-                            //   //   fixedSize: Size(170, 85),
-                            //   //   onPrimary: Colors.white,
-                            //   //   shape: RoundedRectangleBorder(
-                            //   //     borderRadius: BorderRadius.all(Radius.circular(30),
-                            //   //     )
-                            //   //   )
-                            //   // ),
-                            //     child: Text("LEARN MORE",
-                            //       style: TextStyle(
-                            //         fontSize: 18,
-                            //         letterSpacing: 2
-                            //       ),
-                            //     ),
-                            // ),
-                          ),
-                        ],
-                      ),
-                    ],
+                      textAlign: TextAlign.left,
+                    ),
                   ),
-                ),
+
+                  Container(
+                    width: ScreenSize.width,
+                    height: ScreenSize.height*0.07,
+                    child: Text("Mobile Devices, TV Display, Kiosk, & Web Admin System",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                  Container(
+                      height: ScreenSize.height*0.1,
+                      width: ScreenSize.width,
+                      child: Text(
+                          "Mobile Function: Application for patients (online appointment, queuing information, online payment)",
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.3,
+                          letterSpacing: 1.3,
+                          color: Colors.white
+                        ),
+                      )
+                  ),
+                  Container(
+                      height: ScreenSize.height*0.1,
+                      width: ScreenSize.width,
+                      child: Text(
+                          "TV Display Function: Display queue calls at every counter or doctor queue at the hospital.",
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.3,
+                          letterSpacing: 1.3,
+                          color: Colors.white
+                        ),
+                      )
+                  ),
+                  Container(
+                      height: ScreenSize.height*0.1,
+                      width: ScreenSize.width,
+                      child: Text(
+                          "Kiosk Function: Queue pick-up, self-reservation on site, check-in.",
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.3,
+                          letterSpacing: 1.3,
+                          color: Colors.white,
+                        ),
+                      )
+                  ),
+                  Container(
+                      height: ScreenSize.height*0.1,
+                      width: ScreenSize.width,
+                      child: Text("Web Admin Function: Queue management in hospital, reservation by admin or hospital officer, queue call.",
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.3,
+                          letterSpacing: 1.3,
+                          color: Colors.white
+                        ),
+                      )
+                  ),
+                  // SizedBox(height: 10,),
+                  Container(
+                    height : 35,
+                    width : 180,
+                    child: ElevatedButton(
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/register');
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.blue[900],
+                        onSurface: Colors.white,
+                        side: BorderSide(
+                          color: Colors.white
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(30)
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                          "Download",
+                        style: TextStyle(
+                          fontSize: 18,
+                          letterSpacing: 2
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(width: 40,),
-              Container(
-                width: ScreenSize.width * 0.3,
-                height: ScreenSize.height * 0.69,
-                // color: Colors.white,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/medaps3.png')
-                  ),
-                  borderRadius: BorderRadius.circular(20)
+            ),
+            SizedBox(width: 10,),
+            Container(
+              width: ScreenSize.width * 0.3,
+              height: ScreenSize.height * 0.69,
+              // color: Colors.white,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                image: DecorationImage(
+                  image: AssetImage('assets/images/medaps3.png')
                 ),
-              )
-            ],
-          ),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            )
+          ],
         ),
       ),
 

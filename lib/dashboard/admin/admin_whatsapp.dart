@@ -167,11 +167,11 @@ class _Dashboard3State extends State<Dashboard3> {
                               (isSuccess) {
                             if (isSuccess) {
                               setState(() {});
-                              Scaffold.of(this.context).showSnackBar(
+                              ScaffoldMessenger.of(this.context).showSnackBar(
                                   const SnackBar(
                                       content: Text("Input Data success")));
                             } else {
-                              Scaffold.of(this.context).showSnackBar(
+                              ScaffoldMessenger.of(this.context).showSnackBar(
                                   const SnackBar(
                                       content: Text("Input Data failed!!!")));
                             }

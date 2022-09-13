@@ -24,14 +24,14 @@ void setPageTitle(String title, BuildContext context) {
   ));
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePageUser extends StatefulWidget {
+  const HomePageUser({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePageUser> createState() => _HomePageUserState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageUserState extends State<HomePageUser> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -43,29 +43,29 @@ class _HomePageState extends State<HomePage> {
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBarKecil()
           : AppbarHomeLarge(screenSize, context, Colors.blue, Colors.black,
-              Colors.black, Colors.black, Colors.black),
+          Colors.black, Colors.black, Colors.black),
       drawer: const DrawerMedApp(),
       body: ResponsiveWidget.isSmallScreen(context)
           ? ListView(
-              children: const [
-                SmallHome1(),
-                SmallHome2(),
-                SmallHome3(),
-                SmallHome4(),
-                ContactUs2_small(),
-                FooterSmall(),
-              ],
-            )
+        children: const [
+          SmallHome1(),
+          SmallHome2(),
+          SmallHome3(),
+          SmallHome4(),
+          ContactUs2_small(),
+          FooterSmall(),
+        ],
+      )
           : ListView(
-              children: [
-                const Home1(),
-                const Home2(),
-                const Home3(),
-                const Home4(),
-                ContactUs2(),
-                const Footer(),
-              ],
-            ),
+        children: [
+          const Home1(),
+          const Home2(),
+          const Home3(),
+          const Home4(),
+          ContactUs2(),
+          const Footer(),
+        ],
+      ),
     );
   }
 

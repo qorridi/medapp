@@ -40,13 +40,28 @@ class Footer extends StatelessWidget {
                             width: screenSize.width * 0.12,
                             height: screenSize.height * 0.08,
                             decoration: const BoxDecoration(
-                              //color: Colors.lightBlueAccent,
+                                //color: Colors.lightBlueAccent,
                                 image: DecorationImage(
                                     image: AssetImage(
                                         'assets/logo/medapp-logo.png'),
                                     fit: BoxFit.fill)),
                           ),
-                          const Spacer(),
+                          const Spacer(
+                            flex: 8,
+                          ),
+                          Container(
+                            width: screenSize.width * 0.1,
+                            height: screenSize.height * 0.08,
+                            decoration: const BoxDecoration(
+                                //color: Colors.lightBlueAccent,
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/logo/logo-eksad.png'),
+                                    fit: BoxFit.fill)),
+                          ),
+                          const Spacer(
+                            flex: 8,
+                          ),
                           Container(
                             width: screenSize.width * 0.2,
                             height: screenSize.height * 0.05,
@@ -314,9 +329,9 @@ class Footer extends StatelessWidget {
                                   height: screenSize.height * 0.3,
                                   child: Text(
                                     'PT. Tiga Daya Digital Indonesia \nThe East '
-                                        'Tower 19th Floor \nJl. Dr. Ide Anak Agung '
-                                        '\nGde Agung Blok E3.2 '
-                                        '\nMega Kuningan, \nJakarta Selatan 12950',
+                                    'Tower 19th Floor \nJl. Dr. Ide Anak Agung '
+                                    '\nGde Agung Blok E3.2 '
+                                    '\nMega Kuningan, \nJakarta Selatan 12950',
                                     style: GoogleFonts.poppins(
                                       fontSize: 16,
                                       height: 1.5,
@@ -339,9 +354,9 @@ class Footer extends StatelessWidget {
               height: screenSize.height * 0.13,
               child: const Center(
                   child: Text(
-                    'PT. Tiga Daya Digital Indonesia © 2018, All Rights Reserved.',
-                    style: TextStyle(letterSpacing: 1.3, height: 1.4, fontSize: 17),
-                  )),
+                'PT. Tiga Daya Digital Indonesia © 2018, All Rights Reserved.',
+                style: TextStyle(letterSpacing: 1.3, height: 1.4, fontSize: 17),
+              )),
             )
           ],
         ));
@@ -366,8 +381,7 @@ class itemBawah extends StatelessWidget {
               color: const Color(0xff1e5ea8),
               //decoration: TextDecoration.underline,
               fontSize: 17,
-              letterSpacing: 1.2
-          ),
+              letterSpacing: 1.2),
         ));
   }
 }

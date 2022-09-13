@@ -18,19 +18,22 @@ class Home2 extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Spacer(
-            flex: 2,
+            flex: 1,
           ),
           Container(
             width: screenSize.width,
-            child: Text('How do we help ?',
+            child: Text('MedApp Background',
                 style: GoogleFonts.poppins(
                     fontSize: 35,
                     color: const Color.fromARGB(255, 12, 66, 101),
                     fontWeight: FontWeight.bold)),
           ),
-          SizedBox(height: 10),
+          Spacer(
+            flex: 1,
+          ),
           Container(
             width: screenSize.width,
             height: 100,
@@ -44,7 +47,9 @@ class Home2 extends StatelessWidget {
                     height: 1.6,
                     fontWeight: FontWeight.w500)),
           ),
-          SizedBox(height: 10),
+          Spacer(
+            flex: 1,
+          ),
           Container(
             // padding: const EdgeInsets.only(left: 1),
             // width: screenSize.width * 0.3,
@@ -74,7 +79,9 @@ class Home2 extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 30),
+          Spacer(
+            flex: 1,
+          ),
           Container(
             width: screenSize.width,
             height: 100,
@@ -90,7 +97,9 @@ class Home2 extends StatelessWidget {
                     height: 1.6,
                     fontWeight: FontWeight.w500)),
           ),
-          SizedBox(height: 10),
+          Spacer(
+            flex: 1,
+          ),
           Container(
             width: screenSize.width,
             height: 100,
@@ -104,6 +113,9 @@ class Home2 extends StatelessWidget {
                     letterSpacing: 1.1,
                     height: 1.6,
                     fontWeight: FontWeight.w500)),
+          ),
+          Spacer(
+            flex: 1,
           ),
         ],
       ),

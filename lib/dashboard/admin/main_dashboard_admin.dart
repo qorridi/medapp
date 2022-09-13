@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_contact.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_dashboard.dart';
+import 'package:medapp_eksad/dashboard/admin/admin_sosmed.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_whatsapp.dart';
 
 class DashboardAdmin extends StatefulWidget {
@@ -116,26 +117,26 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                 // ),
               ),
               SideMenuItem(
-                priority: 2,
+                priority: 1,
                 title: 'Files',
                 onTap: () {
-                  page.jumpToPage(2);
+                  page.jumpToPage(1);
                 },
                 icon: const Icon(Icons.file_copy_rounded),
               ),
               SideMenuItem(
-                priority: 3,
-                title: 'WhatsApp Number',
+                priority: 2,
+                title: 'Social Media',
                 onTap: () {
-                  page.jumpToPage(3);
+                  page.jumpToPage(2);
                 },
-                icon: const Icon(Icons.whatsapp),
+                icon: const Icon(Icons.phone_android),
               ),
               SideMenuItem(
-                priority: 4,
-                title: 'Message User',
+                priority: 3,
+                title: 'Contact List',
                 onTap: () {
-                  page.jumpToPage(4);
+                  page.jumpToPage(3);
                 },
                 icon: const Icon(Icons.contact_mail),
               ),
@@ -151,32 +152,14 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                   color: Colors.white,
                   child: const Center(
                     child: Text(
-                      'Users',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
                       'Files',
                       style: TextStyle(fontSize: 35),
                     ),
                   ),
                 ),
-                Dashboard3(),
+                SosmedDashboard(),
+                //Dashboard3(),
                 Dashboard4(),
-
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Dashboard',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
               ],
             ),
           ),

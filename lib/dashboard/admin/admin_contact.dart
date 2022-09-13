@@ -10,14 +10,14 @@ class Dashboard4 extends StatefulWidget {
 }
 
 class MessageUser {
-  int id;
+  String date;
   String name;
   String email;
   String message;
   String number;
 
   MessageUser(
-      this.id,
+      this.date,
       this.name,
       this.email,
       this.message,
@@ -27,12 +27,12 @@ class MessageUser {
 
 class _Dashboard4State extends State<Dashboard4> {
   List<MessageUser> ListMessage = <MessageUser>[
-    MessageUser(1, "Jay", 'email', 'message', 'number'),
-    MessageUser(2, 'nama', 'email', 'message', 'nomer'),
-    MessageUser(1, "Jay", 'email', 'message', 'number'),
-    MessageUser(2, 'nama', 'email', 'message', 'nomer'),MessageUser(1, "Jay", 'email', 'message', 'number'),
-    MessageUser(2, 'nama', 'email', 'message', 'nomer'),MessageUser(1, "Jay", 'email', 'message', 'number'),
-    MessageUser(2, 'nama', 'email', 'message', 'nomer'),
+    MessageUser("1", "Jay", 'email', 'message', 'number'),
+    MessageUser('2', 'Rizky', 'email', 'message', 'nomer'),
+    MessageUser('1', "Arham", 'email', 'message', 'number'),
+    MessageUser('2', 'Faid', 'email', 'message', 'nomer'),MessageUser('1', "Bagas", 'email', 'message', 'number'),
+    MessageUser('2', 'Fikri', 'email', 'message', 'nomer'),MessageUser('1', "Budi", 'email', 'message', 'number'),
+    MessageUser('2', 'Fahrur', 'email', 'message', 'nomer'),
   ];
 
   @override
@@ -94,7 +94,7 @@ class _Dashboard4State extends State<Dashboard4> {
                   // header :Text("Data Message User"),
                   columnSpacing: 150,
                   columns: [
-                    DataColumn(label: Text("ID"),),
+                    DataColumn(label: Text("Date"),),
                     DataColumn(label: Text("Name"),),
                     DataColumn(label: Text("Email"),),
                     DataColumn(label: Text("Message"),),
@@ -131,7 +131,7 @@ class UserDataTableSource extends DataTableSource {
     return DataRow.byIndex(
       index: index,
       cells: <DataCell>[
-        DataCell(Text('${_user.id}')),
+        DataCell(Text('${_user.date}')),
         DataCell(Text('${_user.name}')),
         DataCell(Text('${_user.email}')),
         DataCell(Text('${_user.message}')),

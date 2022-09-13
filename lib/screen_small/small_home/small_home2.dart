@@ -26,7 +26,7 @@ class SmallHome2 extends StatelessWidget {
 
           Container(
             width: screenSize.width,
-            child: Text('How do we help ?',
+            child: Text('MedApp Background',
                 style: GoogleFonts.poppins(
                     fontSize: 30,
                     color: const Color.fromARGB(255, 12, 66, 101),

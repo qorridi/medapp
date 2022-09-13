@@ -96,7 +96,7 @@ class _RegisterState extends State<Register> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         Container(
                           padding: EdgeInsets.only(
                             left: screenize.width * 0.05
@@ -108,7 +108,7 @@ class _RegisterState extends State<Register> {
                         Row(
                           children: [
                             Icon(
-                              Icons.email_outlined,
+                              Icons.drive_file_rename_outline,
                               color: Colors.grey[500],
                               size: screenize.width * 0.01,
                             ),
@@ -116,6 +116,9 @@ class _RegisterState extends State<Register> {
                               width: 10,
                             ),
                             const Text("Nama",
+                              style: TextStyle(
+                                fontSize: 13
+                              ),
                             ),
                           ],
                         ),
@@ -123,14 +126,16 @@ class _RegisterState extends State<Register> {
                         Row(
                           children: [
                             SizedBox(
-                              height: 40,
+                              height: 60,
                               width: screenize.width * 0.2,
                               child: TextFormField(
                                 controller: nameController,
                                 textAlign: TextAlign.start,
                                 decoration: InputDecoration(
                                   labelText: "Nama Lengkap",
-                                  hintStyle: const TextStyle(),
+                                  labelStyle: TextStyle(
+                                    fontSize: 13
+                                  ),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(5.0),
                                   )
@@ -146,7 +151,7 @@ class _RegisterState extends State<Register> {
                           ],
                         ),
 
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 5  ,),
                         Row(
                           children: [
                             Icon(
@@ -157,14 +162,18 @@ class _RegisterState extends State<Register> {
                             const SizedBox(
                               width: 10,
                             ),
-                            const Text("Email"),
+                            const Text("Email",
+                              style: TextStyle(
+                                fontSize: 13
+                              ),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 5,),
                         Row(
                           children: [
                             SizedBox(
-                              height: 40,
+                              height: 60,
                               width: screenize.width * 0.2,
                               child: TextFormField(
                                 controller: emailController,
@@ -177,6 +186,9 @@ class _RegisterState extends State<Register> {
                                 },
                                 decoration: InputDecoration(
                                     labelText: "Email Valid",
+                                    labelStyle: TextStyle(
+                                      fontSize:13
+                                    ),
                                     hintStyle: const TextStyle(),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(5.0),
@@ -187,25 +199,29 @@ class _RegisterState extends State<Register> {
                           ],
                         ),
 
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 5,),
                         Row(
                           children: [
                             Icon(
-                              Icons.email_outlined,
+                              Icons.phone_android,
                               color: Colors.grey[500],
                               size: screenize.width * 0.01,
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            const Text("No Hp"),
+                            const Text("No Hp",
+                              style: TextStyle(
+                                fontSize: 13
+                              ),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 5,),
                         Row(
                           children: [
                             SizedBox(
-                              height: 40,
+                              height: 60,
                               width: screenize.width * 0.2,
                               child: TextFormField(
                                 controller: phoneController,
@@ -218,6 +234,9 @@ class _RegisterState extends State<Register> {
                                 },
                                 decoration: InputDecoration(
                                     labelText: "Nomor Handphone",
+                                    labelStyle: TextStyle(
+                                      fontSize: 13
+                                    ),
                                     hintStyle: const TextStyle(),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(5.0),
@@ -227,25 +246,29 @@ class _RegisterState extends State<Register> {
                             )
                           ],
                         ),
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 5,),
                         Row(
                           children: [
                             Icon(
-                              Icons.email_outlined,
+                              Icons.account_circle_sharp,
                               color: Colors.grey[500],
                               size: screenize.width * 0.01,
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            const Text("Username"),
+                            const Text("Username",
+                              style: TextStyle(
+                                fontSize: 13
+                              ),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 5,),
                         Row(
                           children: [
                             SizedBox(
-                              height: 40,
+                              height: 60,
                               width: screenize.width * 0.2,
                               child: TextFormField(
                                 controller: usernameController,
@@ -258,6 +281,9 @@ class _RegisterState extends State<Register> {
                                 },
                                 decoration: InputDecoration(
                                     labelText: "Username",
+                                    labelStyle: TextStyle(
+                                      fontSize: 13
+                                    ),
                                     hintStyle: const TextStyle(),
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(5.0),
@@ -268,23 +294,27 @@ class _RegisterState extends State<Register> {
                           ],
                         ),
 
-                        const SizedBox(height: 10,),
+                        const SizedBox(height: 5,),
                         Row(
                           children: [
                             Icon(
-                              Icons.email_outlined,
+                              Icons.vpn_key_off_sharp,
                               color: Colors.grey[500],
                               size: screenize.width * 0.01,
                             ),
                             const SizedBox(
                               width: 10,
                             ),
-                            const Text("Password"),
+                            const Text("Password",
+                              style: TextStyle(
+                                fontSize: 13
+                              ),
+                            ),
                           ],
                         ),
                         const SizedBox(height: 5,),
                         SizedBox(
-                          height: 40,
+                          height: 60,
                           width: screenize.width * 0.2,
                           child: TextFormField(
                             controller: pwController,
@@ -298,6 +328,9 @@ class _RegisterState extends State<Register> {
                             obscureText: _isObscure,
                             decoration: InputDecoration(
                               labelText: "Password",
+                              labelStyle: TextStyle(
+                                fontSize: 13
+                              ),
                               suffixIcon: IconButton(
                                 icon: Icon(_isObscure
                                     ? Icons.visibility
@@ -339,9 +372,9 @@ class _RegisterState extends State<Register> {
                               height: 30,
                               width: screenize.width * 0.09,
                               child: ElevatedButton(
-                                onPressed: ()async{
+                                onPressed: () async {
                                   if (_formKey.currentState!.validate()){
-                                    final response = await signup(
+                                    final response = await signUp(
                                       nameController.value.text,
                                       emailController.value.text,
                                       phoneController.value.text,

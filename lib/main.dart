@@ -4,8 +4,10 @@ import 'package:medapp_eksad/dashboard/admin/main_dashboard_admin.dart';
 import 'package:medapp_eksad/homepage.dart';
 import 'package:medapp_eksad/login.dart';
 import 'package:medapp_eksad/register.dart';
+import 'package:medapp_eksad/register_pic.dart';
 import 'package:medapp_eksad/screen/contact_us/contact_us.dart';
 import 'package:medapp_eksad/screen/solution.dart';
+import 'package:medapp_eksad/screen_user/demo_user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,10 +27,12 @@ class MyApp extends StatelessWidget {
         '/about': (context) => const HomePage(),
         '/solutions': (context) => const Solutions(),
         '/contact': (context) => const ContactUs(),
-        '/login': (context) => const login(),
-        '/register': (context) => const Register(),
+        '/login': (context) => const SignIn(),
+        '/register': (context) => const RegisterPic(),
         '/dashboard': (context) => const DashboardAdmin(),
         '/reset_password': (context) => const ForgotPassword(),
+        '/demo': (context) => const DemoUser(),
+        //'/register_pic': (context) => const RegisterPic(),
       },
     );
   }
