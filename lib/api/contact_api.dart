@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:medapp_eksad/model/contact_model.dart';
 
+var cmd = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/cmd';
+var qry = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/qry';
+
 Future savecontact(nama, email, nohp, message) async {
   final response = await http.post(
-      Uri.parse('http://10.107.223.156:8081/medapp/v1/api/contact/save'),
+      Uri.parse('$cmd/contact/save'),
       body: jsonEncode({
         "nama": nama,
         "email": email,
@@ -24,7 +27,7 @@ Future savecontact(nama, email, nohp, message) async {
 
 Future<List<contact>> showcontact() async {
   var response = await http
-      .get(Uri.parse('http://10.107.223.156:8082/medapp/v1/api/contact/get'));
+      .get(Uri.parse('$qry/contact/get'));
   var resultJson = jsonDecode(response.body)['data'];
   List<contact> contactlist = await resultJson
   .map<contact>((json) => contact.fromJson(json))

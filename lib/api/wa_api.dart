@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:medapp_eksad/model/wa_model.dart';
 
+var cmd = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/cmd';
+var qry = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/qry';
+
 Future<bool> saveWa(nama, nohp) async {
   final response = await http.post(
-      Uri.parse('http://10.3.4.231:8081/medapp/v1/api/whatapps/save'),
+      Uri.parse('$cmd/whatapps/save'),
       body: jsonEncode({
         "nama": nama,
         "no": nohp
@@ -21,7 +24,7 @@ Future<bool> saveWa(nama, nohp) async {
 }
 Future<List<dynamic>> getWA () async {
   var response = await http
-      .get(Uri.parse('http://10.3.4.231:8082/medapp/v1/api/whatapps/get'));
+      .get(Uri.parse('$qry/whatapps/get'));
   var resultJson = jsonDecode(response.body)['data'];
   List<wa> walist = await resultJson
       .map<wa>((json) => wa.fromJson(json))

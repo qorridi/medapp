@@ -3,9 +3,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:medapp_eksad/model/user_model.dart';
 
+var cmd = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/cmd';
+var qry = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/qry';
+
 Future<bool> signUp(nama, email, nohp, username, password)async{
   final response = await http.post(
-      Uri.parse('http://10.107.203.242:8081/medapp/v1/api/user/signup'),
+      Uri.parse('$cmd/user/signup'),
     body: jsonEncode({
       "namaUser": nama,
       "emailUser": email,
@@ -25,7 +28,7 @@ Future<bool> signUp(nama, email, nohp, username, password)async{
 }
 Future<bool> signIn(username, password)async{
   final response = await http.post(
-      Uri.parse('http://10.3.4.250:8081/medapp/v1/api/user/signin'),
+      Uri.parse('$cmd/user/signin'),
       body: jsonEncode({
         "username": username,
         "password": password}),
@@ -42,7 +45,7 @@ Future<bool> signIn(username, password)async{
 }
 Future<bool> signOut(username)async{
   final response = await http.post(
-      Uri.parse('http://10.3.4.250:8081/medapp/v1/api/user/signout'),
+      Uri.parse('$cmd/user/signout'),
       body: jsonEncode({
         "username": username}),
       headers: {
@@ -58,7 +61,7 @@ Future<bool> signOut(username)async{
 }
 Future<bool> resetPassword(username, password, verifypass)async{
   final response = await http.put(
-      Uri.parse('http://10.3.4.250:8081/medapp/v1/api/user/resetPassword'),
+      Uri.parse('$cmd/user/resetPassword'),
       body: jsonEncode({
         "username": username,
         "password": password,
@@ -77,7 +80,7 @@ Future<bool> resetPassword(username, password, verifypass)async{
 }
 Future<List<dynamic>> getUser() async {
   var response = await http
-      .get(Uri.parse('http://10.3.4.231:8082/medapp/v1/api/user/get'));
+      .get(Uri.parse('$qry/user/get'));
   var resultJson = jsonDecode(response.body)['data'];
   List<user> walist = await resultJson
       .map<user>((json) => user.fromJson(json))
