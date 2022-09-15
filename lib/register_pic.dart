@@ -453,68 +453,64 @@ class _RegisterPicState extends State<RegisterPic> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 // ===============password==========
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.vpn_key_off_sharp,
-                              color: Colors.grey[500],
-                              size: screenize.width * 0.01,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            const Text("Password",
-                              style: TextStyle(
-                                fontSize: 13
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 5,),
-                        SizedBox(
-                          height: 60,
-                          width: screenize.width * 0.2,
-                          child: TextFormField(
-                            controller: passwordController,
-                            textAlign: TextAlign.start,
-                            validator: (value){
-                              if (value == null || value.isEmpty){
-                                return "Password tidak boleh kosong";
-                              }
-                              return null;
-                            },
-                            obscureText: _isObscure,
-                            decoration: InputDecoration(
-                              labelText: "Password",
-                              labelStyle: TextStyle(
-                                fontSize: 13
-                              ),
-                              suffixIcon: IconButton(
-                                icon: Icon(_isObscure
-                                    ? Icons.visibility
-                                    : Icons.visibility_off
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.vpn_key_off_sharp,
+                                      color: Colors.grey[500],
+                                      size: screenize.width * 0.01,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    const Text(
+                                      "Password",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                  ],
                                 ),
-                                onPressed: (){
-                                  setState(() {
-                                    _isObscure = !_isObscure;
-                                  });
-                                },
-                              ),
-                              hintStyle: const TextStyle(),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0)
-                              ),
-                            ),
-                          ),
-                        ),
-                         // ===============akhir password==========
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                SizedBox(
+                                  height: 60,
+                                  width: screenize.width * 0.2,
+                                  child: TextFormField(
+                                    controller: passwordController,
+                                    textAlign: TextAlign.start,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return "Password tidak boleh kosong";
+                                      }
+                                      return null;
+                                    },
+                                    obscureText: _isObscure,
+                                    decoration: InputDecoration(
+                                      labelText: "Password",
+                                      labelStyle: TextStyle(fontSize: 13),
+                                      suffixIcon: IconButton(
+                                        icon: Icon(_isObscure
+                                            ? Icons.visibility
+                                            : Icons.visibility_off),
+                                        onPressed: () {
+                                          setState(() {
+                                            _isObscure = !_isObscure;
+                                          });
+                                        },
+                                      ),
+                                      hintStyle: const TextStyle(),
+                                      border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0)),
+                                    ),
+                                  ),
+                                ),
+                                // ===============akhir password==========
                               ],
                             ),
                             const SizedBox(
                               width: 30,
                             ),
-
-                            
                           ],
                         ),
                         Column(
@@ -532,34 +528,38 @@ class _RegisterPicState extends State<RegisterPic> {
                                 const SizedBox(
                                   width: 10,
                                 ),
-                                const Text("Latitude & Longitude PIC",
-                                  style: TextStyle(
-                                      fontSize: 13
-                                  ),
+                                const Text(
+                                  "Latitude & Longitude PIC",
+                                  style: TextStyle(fontSize: 13),
                                 ),
                               ],
                             ),
-                            const SizedBox(height: 5,),
-                            Container(
-                              height: 50,
-                              width: screenize.width * 0.42,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(''),
-                                  Container(
-                                    height: 51,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                        child: ElevatedButton(onPressed: (){}, child: Text('Set'))),
-                                  ),
-                                ],
-                              )
+                            const SizedBox(
+                              height: 5,
                             ),
+                            Container(
+                                height: 50,
+                                width: screenize.width * 0.42,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(''),
+                                    Container(
+                                      height: 51,
+                                      child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: ElevatedButton(
+                                              onPressed: () {},
+                                              child: Text('Set'))),
+                                    ),
+                                  ],
+                                )),
                             // ===============akhir password==========
                           ],
                         ),

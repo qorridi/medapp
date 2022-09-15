@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 final List<String> imgList = [
   'images/solution1.jpg',
   'images/solution2.jpg',
+  'images/patrickgif.gif',
 
 ];
 

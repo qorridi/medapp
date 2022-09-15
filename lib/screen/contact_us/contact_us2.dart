@@ -252,11 +252,16 @@ class ContactUs2 extends StatelessWidget {
                     child: TextButton(
                       style: Btn_Submit(),
                       onPressed: () async {
+                        savecontact(
+                            nameController.value.text,
+                            emailController.value.text,
+                            phoneController.value.text,
+                            messageController.value.text);
                         if (_formKey.currentState!.validate()) {
-                          final response = await SendEmail(
+                          final response = await sendEmail(
                               nameController.value.text,
-                              emailController.value.text,
                               phoneController.value.text,
+                              emailController.value.text,
                               messageController.value.text);
                           ScaffoldMessenger.of(context).showSnackBar(
                             response == 200
@@ -292,12 +297,12 @@ class ContactUs2 extends StatelessWidget {
     );
   }
 
-  Future SendEmail(
+  Future sendEmail(
       String name, String phone, String email, String message) async {
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
     const serviceId = 'service_7wwup8c';
     const templateId = 'template_4u8rbur';
-    const userId = 'bzSFpP9flgDHE1D8dDLOP';
+    const userId = 'fF4-BJSJ11O-S3J0Z';
     final response = await http.post(url,
         headers: {
           'Content-Type': 'application/json'

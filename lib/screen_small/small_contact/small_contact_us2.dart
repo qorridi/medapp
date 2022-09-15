@@ -233,6 +233,11 @@ class _ContactUs2_smallState extends State<ContactUs2_small> {
                           child: TextButton(
                             style: Btn_Submit(),
                             onPressed: () async {
+                              savecontact(
+                                  nameController.value.text,
+                                  emailController.value.text,
+                                  phoneController.value.text,
+                                  messageController.value.text);
                               if (_formKey.currentState!.validate()) {
                                 final response = await SendEmail(
                                     nameController.value.text,
@@ -272,9 +277,9 @@ class _ContactUs2_smallState extends State<ContactUs2_small> {
   Future SendEmail(
       String name, String phone, String email, String message) async {
     final url = Uri.parse('https://api.emailjs.com/api/v1.0/email/send');
-    const serviceId = 'service_7wwup8c';
+     const serviceId = 'service_7wwup8c';
     const templateId = 'template_4u8rbur';
-    const userId = 'bzSFpP9flgDHE1D8dDLOP';
+    const userId = 'fF4-BJSJ11O-S3J0Z';
     final response = await http.post(url,
         headers: {
           'Content-Type': 'application/json'

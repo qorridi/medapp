@@ -259,10 +259,7 @@ class _SignInState extends State<SignIn> {
                                         );
                                       } else if (_usernamecontroller.value.text == 'admin@admin.com' &&
                                           _passwordcontroller.value.text == 'administrator') {
-                                        Navigator.pushNamed(context, '/admin');
-                                      } else if (_usernamecontroller.value.text == 'client@client.com' &&
-                                          _passwordcontroller.value.text == 'clientpage') {
-                                        Navigator.pushNamed(context, '/client');
+                                        Navigator.pushNamed(context, '/dashboard');
                                       } else {
                                         showDialog<String>(
                                           context: context,
