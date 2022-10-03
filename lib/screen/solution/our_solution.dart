@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 
-
 class OurSolution extends StatelessWidget {
-  const OurSolution({Key? key,required this.button}) : super(key: key);
-
+  OurSolution({
+    Key? key,
+    required this.button,
+    required this.wijet,
+  }) : super(key: key);
   final Widget button;
+  final Widget wijet;
 
   @override
   Widget build(BuildContext context) {

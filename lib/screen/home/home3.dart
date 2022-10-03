@@ -23,7 +23,7 @@ class _Home3State extends State<Home3> {
           const SizedBox(
             height: 45,
           ),
-          Text("Why MedApp ?",
+          Text("Our Features",
               style: GoogleFonts.poppins(
                   fontSize: 36,
                   color: const Color(0xff1e5ea8),
@@ -45,7 +45,7 @@ class _Home3State extends State<Home3> {
                         child: Animasi_Kiri_Kanan(
                             screenSize: screenSize,
                             widget: Image.asset(
-                              'assets/icons/why1.png',
+                              'assets/icons/queuesystem.png',
                               height: 60,
                               width: 60,
                             )
@@ -94,7 +94,7 @@ class _Home3State extends State<Home3> {
                         child: Animasi_Kiri_Kanan(
                             screenSize: screenSize,
                             widget: Image.asset(
-                              'assets/icons/why2.png',
+                              'assets/icons/patientnotification.png',
                               height: 60,
                               width: 60,
                             ))),
@@ -142,7 +142,7 @@ class _Home3State extends State<Home3> {
                         child: Animasi_Kiri_Kanan(
                             screenSize: screenSize,
                             widget: Image.asset(
-                              'assets/icons/why3.png',
+                              'assets/icons/selfregistration.png',
                               height: 60,
                               width: 60,
                             ))),
@@ -193,7 +193,7 @@ class _Home3State extends State<Home3> {
                         child: Animasi_Kiri_Kanan(
                             screenSize: screenSize,
                             widget: Image.asset(
-                              'assets/icons/why4.png',
+                              'assets/icons/multipayment.png',
                               height: 60,
                               width: 60,
                             ))),
@@ -313,7 +313,7 @@ class _Home3State extends State<Home3> {
                         child: Animasi_Kiri_Kanan(
                             screenSize: screenSize,
                             widget: Image.asset(
-                              'assets/icons/why4.png',
+                              'assets/icons/otherfeatures.png',
                               height: 60,
                               width: 60,
                             ))),

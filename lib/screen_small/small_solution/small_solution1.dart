@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 
 class SmallOurSolution extends StatefulWidget {
-  const SmallOurSolution({Key? key}) : super(key: key);
+  SmallOurSolution({Key? key, required this.wijet}) : super(key: key);
+  final Widget wijet;
 
   @override
   State<SmallOurSolution> createState() => _SmallOurSolutionState();
@@ -56,7 +57,7 @@ class _SmallOurSolutionState extends State<SmallOurSolution> {
                       style: GoogleFonts.poppins(
                           fontSize: 34,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87),
+                          color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -76,7 +77,7 @@ class _SmallOurSolutionState extends State<SmallOurSolution> {
                           letterSpacing: 1.8,
                           height: 1.4,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87),
+                          color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
                   ),

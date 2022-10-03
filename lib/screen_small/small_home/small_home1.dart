@@ -3,9 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:medapp_eksad/widget/button_color.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 
-
 class SmallHome1 extends StatelessWidget {
-  const SmallHome1({Key? key}) : super(key: key);
+  SmallHome1({Key? key, required this.wijet}) : super(key: key);
+  final Widget wijet;
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +75,8 @@ class SmallHome1 extends StatelessWidget {
                   // offset: -0.2,
                   child: Text(
                     'Welcome to healthcare’s most powerful collaboration suite. '
-                        'Enhance clinical workflows, speed decisions, and improve'
-                        ' patient outcomes, safely and securely.',
+                    'Enhance clinical workflows, speed decisions, and improve'
+                    ' patient outcomes, safely and securely.',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
                         fontSize: 15,

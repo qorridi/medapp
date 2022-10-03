@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ContactUs1 extends StatefulWidget {
-  const ContactUs1({Key? key}) : super(key: key);
+  ContactUs1({Key? key, required this.wijet}) : super(key: key);
+  final Widget wijet;
 
   @override
   State<ContactUs1> createState() => _ContactUsState();
@@ -26,10 +27,10 @@ class _ContactUsState extends State<ContactUs1> {
                   fit: BoxFit.cover)),
         ),
         Container(
-          width: screenSize.width * 0.5,
+          width: screenSize.width * 0.6,
           height: screenSize.height * 0.34,
           padding: EdgeInsets.only(
-              right: screenSize.width * 0.30, left: screenSize.height * 0.06),
+              right: screenSize.width * 0.30, left: screenSize.height * 0.22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,7 +38,7 @@ class _ContactUsState extends State<ContactUs1> {
               Text(
                 'Contact Us',
                 style: GoogleFonts.poppins(
-                    fontSize: 37,
+                    fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
                 overflow: TextOverflow.ellipsis,

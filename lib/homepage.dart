@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:medapp_eksad/api/setting_api.dart';
 import 'package:medapp_eksad/appbar/appbar_home.dart';
 import 'package:medapp_eksad/screen_small/small_contact/small_contact_us2.dart';
 import 'package:medapp_eksad/screen/contact_us/contact_us2.dart';
@@ -12,6 +14,7 @@ import 'package:medapp_eksad/screen_small/small_home/small_home1.dart';
 import 'package:medapp_eksad/screen_small/small_home/small_home2.dart';
 import 'package:medapp_eksad/screen_small/small_home/small_home3.dart';
 import 'package:medapp_eksad/screen_small/small_home/small_home4.dart';
+import 'package:medapp_eksad/widget/Scroll_top.dart';
 import 'package:medapp_eksad/widget/drawer.dart';
 import 'package:medapp_eksad/widget/responsive.dart';
 import 'package:medapp_eksad/widget/whatsapp.dart';
@@ -32,10 +35,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //   Untuk pake PAGE per index
+  PageController controller = PageController();
+  void _scrollToIndex2(int index) {
+    controller.animateToPage(index,
+        duration: const Duration(seconds: 2),
+        curve: Curves.fastLinearToSlowEaseIn);
+  }
+
+  //   Untuk pake LIST per height container
+  ScrollController controller2 = ScrollController();
+  void _scrollToIndex(double index) {
+    controller2.animateTo(index,
+        duration: const Duration(seconds: 1),
+        curve: Curves.fastLinearToSlowEaseIn);
+  }
+
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    setPageTitle('MedApp by Eksad', context);
+    // setPageTitle('MedApp by Eksad', context);
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
@@ -46,26 +65,91 @@ class _HomePageState extends State<HomePage> {
               Colors.black, Colors.black, Colors.black),
       drawer: const DrawerMedApp(),
       body: ResponsiveWidget.isSmallScreen(context)
-          ? ListView(
-              children: const [
-                SmallHome1(),
-                SmallHome2(),
-                SmallHome3(),
-                SmallHome4(),
-                ContactUs2_small(),
-                FooterSmall(),
+          ? Stack(
+              children: [
+                FutureBuilder<dynamic>(
+                  future: getSettingDesc2(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    var pgm = snapshot.data[0];
+                    return Title(
+                      title: pgm['title'],
+                      color: Colors.white,
+                      child: ListView(
+                        scrollDirection: Axis.vertical,
+                        controller: controller2,
+                        children: [
+                          SmallHome1(wijet: Button_scroll_small()),
+                          SmallHome2(),
+                          SmallHome3(),
+                          SmallHome4(),
+                          ContactUs2_small(),
+                          FooterSmall(),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                ScrollUpButton(controller2),
               ],
             )
-          : ListView(
+          : Stack(
               children: [
-                const Home1(),
-                const Home2(),
-                const Home3(),
-                const Home4(),
-                ContactUs2(),
-                const Footer(),
+                FutureBuilder<dynamic>(
+                  future: getSettingDesc2(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    var pgm = snapshot.data[0];
+                    return Title(
+                      title: pgm['title'],
+                      color: Colors.white,
+                      child: ListView(
+                        scrollDirection: Axis.vertical,
+                        controller: controller2,
+                        children: [
+                          Home1(wijet: Button_scroll()),
+                          const Home2(),
+                          const Home3(),
+                          const Home4(),
+                          ContactUs2(),
+                          Footer(),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+                ScrollUpButton(controller2),
               ],
             ),
+    );
+  }
+
+  ElevatedButton Button_scroll() {
+    return ElevatedButton(
+      onPressed: () {
+        _scrollToIndex(3780);
+      },
+      style: ElevatedButton.styleFrom(
+        primary: const Color(0xff1e5ea8),
+      ),
+      child: Text(
+        'CONTACT US',
+        style: GoogleFonts.poppins(
+            fontSize: 17, letterSpacing: 2, fontWeight: FontWeight.w500),
+      ),
+    );
+  }
+
+  ElevatedButton Button_scroll_small() {
+    return ElevatedButton(
+      onPressed: () {
+        _scrollToIndex(5410);
+      },
+      style: ElevatedButton.styleFrom(
+          primary: const Color(0xff1e5ea8), fixedSize: const Size(50, 20)),
+      child: Text(
+        'CONTACT US',
+        style: GoogleFonts.poppins(
+            fontSize: 15, letterSpacing: 1.5, fontWeight: FontWeight.w500),
+      ),
     );
   }
 

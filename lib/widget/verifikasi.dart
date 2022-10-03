@@ -115,7 +115,7 @@ class _FormVerifikasiState extends State<FormVerifikasi> {
                       },
                       onChanged: (value) => _confirmPassword = value,
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     Container(
                         alignment: Alignment.centerRight,
                         child: OutlinedButton(

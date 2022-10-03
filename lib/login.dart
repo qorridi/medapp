@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+
+import 'firebase/firebase_auth_methods.dart';
 
 void setPageTitle(String title, BuildContext context) {
   SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
@@ -19,8 +22,18 @@ class _SignInState extends State<SignIn> {
   bool _isObscure = true;
 
   final formKey = GlobalKey<FormState>();
-  final TextEditingController _usernamecontroller = TextEditingController();
-  final TextEditingController _passwordcontroller = TextEditingController();
+  // final TextEditingController _usernamecontroller = TextEditingController();
+  // final TextEditingController _passwordcontroller = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void loginUser() {
+    context.read<FirebaseAuthMethods>().loginWithEmail(
+          email: emailController.text,
+          password: passwordController.text,
+          context: context,
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +42,6 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       body: Stack(
         children: [
-
           Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -44,7 +56,6 @@ class _SignInState extends State<SignIn> {
                 bottom: screenSize.height * 0.13),
             child: Stack(
               children: [
-
                 Container(
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 10, 116, 255),
@@ -58,7 +69,8 @@ class _SignInState extends State<SignIn> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: screenSize.width * 0.33, top: screenSize.height * 0.07),
+                      left: screenSize.width * 0.33,
+                      top: screenSize.height * 0.07),
                   child: Container(
                     width: screenSize.width * 0.3,
                     height: screenSize.height * 0.6,
@@ -93,8 +105,8 @@ class _SignInState extends State<SignIn> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              padding:
-                                  EdgeInsets.only(left: screenSize.width * 0.055),
+                              padding: EdgeInsets.only(
+                                  left: screenSize.width * 0.055),
                               height: screenSize.width * 0.02,
                               child: Image.asset("assets/logo/medapp-logo.png"),
                             ),
@@ -121,8 +133,18 @@ class _SignInState extends State<SignIn> {
                               height: 40,
                               width: screenSize.width * 0.2,
                               child: TextFormField(
-                                controller: _usernamecontroller,
+                                controller: emailController,
                                 textAlign: TextAlign.start,
+                                onFieldSubmitted: (String value) {
+                                  if (emailController.value.text ==
+                                          'admin@admin.com' &&
+                                      passwordController.value.text ==
+                                          'administrator') {
+                                    Navigator.pushNamed(context, '/dashboard');
+                                  } else {
+                                    loginUser();
+                                  }
+                                },
                                 decoration: InputDecoration(
                                   labelText: "Enter Your Email",
                                   hintStyle: const TextStyle(),
@@ -132,7 +154,7 @@ class _SignInState extends State<SignIn> {
                                 ),
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    _usernamecontroller.clear();
+                                    emailController.clear();
                                     return "please enter your email address";
                                   } else if (!RegExp(r'\S+@\S+\.\S+')
                                       .hasMatch(value)) {
@@ -166,7 +188,17 @@ class _SignInState extends State<SignIn> {
                               height: 40,
                               width: screenSize.width * 0.2,
                               child: TextFormField(
-                                controller: _passwordcontroller,
+                                controller: passwordController,
+                                onFieldSubmitted: (String value) {
+                                  if (emailController.value.text ==
+                                          'admin@admin.com' &&
+                                      passwordController.value.text ==
+                                          'administrator') {
+                                    Navigator.pushNamed(context, '/dashboard');
+                                  } else {
+                                    loginUser();
+                                  }
+                                },
                                 textAlign: TextAlign.start,
                                 obscureText: _isObscure,
                                 decoration: InputDecoration(
@@ -189,7 +221,7 @@ class _SignInState extends State<SignIn> {
                                 ),
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    _passwordcontroller.clear();
+                                    passwordController.clear();
                                     return 'This field is required';
                                   } else if (value.trim().length < 8) {
                                     return 'Password must be at least 8 characters in length';
@@ -205,10 +237,15 @@ class _SignInState extends State<SignIn> {
                               crossAxisAlignment: CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                TextButton(onPressed: (){
-                                  Navigator.pushNamed(context, '/reset_password');
-                                }, child: Text('Forgot Password?')),
-                                SizedBox(width: 52,)
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, '/reset_password');
+                                    },
+                                    child: Text('Forgot Password?')),
+                                SizedBox(
+                                  width: 52,
+                                )
                               ],
                             ),
                             const Spacer(
@@ -221,63 +258,57 @@ class _SignInState extends State<SignIn> {
                                   width: screenSize.width * 0.08,
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      if (_usernamecontroller.value.text == 'admin@admin.com' &&
-                                          _passwordcontroller.value.text != 'administrator') {
-                                        showDialog<String>(
-                                          context: context,
-                                          builder: (BuildContext context) =>
-                                              AlertDialog(
-                                            title: const Text('Gagal login'),
-                                            content: const Text(
-                                                'Password anda salah!!!'),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context, 'OK'),
-                                                child: const Text('OK'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      } else if (_usernamecontroller.value.text == 'client@client.com' &&
-                                          _passwordcontroller.value.text != 'clientpage') {
-                                        showDialog<String>(
-                                          context: context,
-                                          builder: (BuildContext context) =>
-                                              AlertDialog(
-                                            title: const Text('Gagal login'),
-                                            content: const Text(
-                                                'Password anda salah!!!'),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context, 'OK'),
-                                                child: const Text('OK'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      } else if (_usernamecontroller.value.text == 'admin@admin.com' &&
-                                          _passwordcontroller.value.text == 'administrator') {
-                                        Navigator.pushNamed(context, '/dashboard');
+                                      if (emailController.value.text ==
+                                              'admin@admin.com' &&
+                                          passwordController.value.text ==
+                                              'administrator') {
+                                        Navigator.pushNamed(
+                                            context, '/dashboard');
                                       } else {
-                                        showDialog<String>(
-                                          context: context,
-                                          builder: (BuildContext context) =>
-                                              AlertDialog(
-                                            title: const Text('Gagal login'),
-                                            content: const Text(
-                                                'Akun Belum terdaftar, Silahkan Registrasi'),
-                                            actions: <Widget>[
-                                              TextButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context, 'OK'),
-                                                child: const Text('OK'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
+                                        loginUser();
                                       }
+                                      // if (emailController.value.text == emailController &&
+                                      //     passwordController.value.text != passwordController) {
+                                      //   showDialog<String>(
+                                      //     context: context,
+                                      //     builder: (BuildContext context) =>
+                                      //         AlertDialog(
+                                      //       title: const Text('Gagal login'),
+                                      //       content: const Text(
+                                      //           'Password anda salah!!!'),
+                                      //       actions: <Widget>[
+                                      //         TextButton(
+                                      //           onPressed: () =>
+                                      //               Navigator.pop(context, 'OK'),
+                                      //           child: const Text('OK'),
+                                      //         ),
+                                      //       ],
+                                      //     ),
+                                      //   );
+                                      // } else if (emailController.value.text == emailController &&
+                                      //     passwordController.value.text == passwordController) {
+                                      //   loginUser();
+                                      //   Navigator.pushNamed(context, '/dashboard');
+                                      // } else {
+                                      //   loginUser();
+                                      //   Navigator.pushNamed(context, '/dashboard');
+                                      //   // showDialog<String>(
+                                      //   //   context: context,
+                                      //   //   builder: (BuildContext context) =>
+                                      //   //       AlertDialog(
+                                      //   //     title: const Text('Gagal login'),
+                                      //   //     content: const Text(
+                                      //   //         'Akun Belum terdaftar, Silahkan Registrasi'),
+                                      //   //     actions: <Widget>[
+                                      //   //       TextButton(
+                                      //   //         onPressed: () =>
+                                      //   //             Navigator.pop(context, 'OK'),
+                                      //   //         child: const Text('OK'),
+                                      //   //       ),
+                                      //   //     ],
+                                      //   //   ),
+                                      //   // );
+                                      // }
                                     },
                                     child: const Text("LOGIN"),
                                   ),
@@ -311,9 +342,11 @@ class _SignInState extends State<SignIn> {
           ),
           Padding(
             padding: const EdgeInsets.all(21.0),
-            child: ElevatedButton(onPressed: (){
-              Navigator.pushNamed(context, '/');
-            }, child: Icon(Icons.arrow_back)),
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                child: Icon(Icons.arrow_back)),
           ),
         ],
       ),

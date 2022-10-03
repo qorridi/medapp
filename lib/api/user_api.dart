@@ -6,15 +6,18 @@ import 'package:medapp_eksad/model/user_model.dart';
 var cmd = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/cmd';
 var qry = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/qry';
 
-Future<bool> signUp(nama, email, nohp, username, password)async{
+Future<bool> signUp(namars,nors,alamatrs,namapic,nopic,email, password)async{
   final response = await http.post(
       Uri.parse('$cmd/user/signup'),
     body: jsonEncode({
-      "namaUser": nama,
-      "emailUser": email,
-      "noHp": nohp,
-      "username": username,
-      "password": password}),
+      "namaRs": namars,
+      "noRs": nors,
+      "alamatRs": alamatrs,
+      "namaPic": namapic,
+      "noPic": nopic,
+      "emailPic": email,
+      "password": password
+    }),
     headers: {
         'Content-type' : 'application/json; charset=UTF-8',
     }
@@ -26,6 +29,7 @@ Future<bool> signUp(nama, email, nohp, username, password)async{
   }
   // return response.statusCode;
 }
+
 Future<bool> signIn(username, password)async{
   final response = await http.post(
       Uri.parse('$cmd/user/signin'),

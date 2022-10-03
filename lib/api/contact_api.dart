@@ -7,7 +7,7 @@ var cmd = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/cmd';
 var qry = 'https://dmsdev-api.eksad.com/gateway/medapp/v1/qry';
 
 Future<List<dynamic>> getcontact() async {
-  var response = await http.get(Uri.parse('$qry/contact/get'));
+  var response = await http.get(Uri.parse('$qry/contact/getContactByDate'));
    return jsonDecode(response.body)['data'];
 }
 
@@ -28,5 +28,20 @@ Future<bool> savecontact(nama, email, nohp, message) async {
     return false;
   }
   // return response.statusCode;
+}
+
+Future<bool> deleteContact(id) async {
+  final response = await http.post(
+    Uri.parse('$cmd/contact/delete'),
+    body: jsonEncode({"idContact": id}),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  );
+  if (response.statusCode == 200) {
+    return true;
+  } else {
+    return false;
+  }
 }
 

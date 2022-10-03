@@ -18,6 +18,9 @@ class ContactUs2 extends StatelessWidget {
   final emailController = TextEditingController();
   final messageController = TextEditingController();
 
+  String pattern =
+      r'(\+62|62|0)(\d{2,3})?\)?[ .-]?\d{2,4}[ .-]?\d{2,4}[ .-]?\d{2,4}';
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -49,45 +52,37 @@ class ContactUs2 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    height: screenSize.height * 0.23,
-                    child: Text(
-                        'Yes, you need '
-                        '\n'
-                        'an outsourcing partner '
-                        'you can trust and thrive with',
-                        textAlign: TextAlign.left,
-                        style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
+                  const Spacer(
+                    flex: 2,
                   ),
+                  Text("Leave Your Contact Info and Let's Discuss Business",
+                      style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500)),
+                  // const Spacer(
+                  //   flex: 1,
+                  // ),
+                  // Text("Let's Discuss Business",
+                  //     style: GoogleFonts.poppins(
+                  //         color: Colors.white,
+                  //         fontSize: 35,
+                  //
+                  //         fontWeight: FontWeight.w500,
+                  //         // fontWeight: FontWeight.bold,
+                  //         letterSpacing: 1.1)
+                  // ),
                   const Spacer(
                     flex: 1,
                   ),
-                  SizedBox(
-                    height: screenSize.height * 0.22,
-                    child: Text(
-                        'Go for the one who knows what they are doing, those who you share values with, '
-                        'and those who will celebrate your success, and help you win over your biggest challenges. '
-                        '\nLooking for an outsourcing partner? ',
-                        textAlign: TextAlign.justify,
-                        style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 18,
-                            // fontWeight: FontWeight.bold,
-                            letterSpacing: 1.1)),
-                  ),
-                  const Spacer(
-                    flex: 1,
-                  ),
-                  Text("We’ll contact you immediately to discuss to help you.",
+                  Text(
+                      "We’ll contact you immediately to discuss potential business",
                       style: GoogleFonts.poppins(
                           color: Colors.white,
                           fontSize: 18,
-                          letterSpacing: 1.2)),
+                          fontWeight: FontWeight.w500)),
                   const Spacer(
-                    flex: 2,
+                    flex: 3,
                   ),
                 ],
               ),
@@ -119,6 +114,7 @@ class ContactUs2 extends StatelessWidget {
                         hintText: "Enter your Name",
                         fillColor: Colors.white,
                         filled: true,
+                        errorStyle: TextStyle(color: Colors.white),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.zero,
                           borderSide: BorderSide(width: 1, color: Colors.white),
@@ -128,6 +124,12 @@ class ContactUs2 extends StatelessWidget {
                           borderSide: BorderSide(width: 1, color: Colors.white),
                         ),
                       ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your name';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   const SizedBox(
@@ -164,6 +166,7 @@ class ContactUs2 extends StatelessWidget {
                             hintText: "Enter a valid phone number",
                             fillColor: Colors.white,
                             filled: true,
+                            errorStyle: TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.zero,
                               borderSide:
@@ -175,6 +178,14 @@ class ContactUs2 extends StatelessWidget {
                                   BorderSide(width: 1, color: Colors.white),
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your phone number';
+                            } else if (!RegExp(pattern).hasMatch(value)) {
+                              return 'Start with 628 or 08';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       const SizedBox(
@@ -188,6 +199,7 @@ class ContactUs2 extends StatelessWidget {
                             hintText: "Enter a valid email address",
                             fillColor: Colors.white,
                             filled: true,
+                            errorStyle: TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.zero,
                               borderSide:
@@ -199,6 +211,12 @@ class ContactUs2 extends StatelessWidget {
                                   BorderSide(width: 1, color: Colors.white),
                             ),
                           ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your email';
+                            }
+                            return null;
+                          },
                         ),
                       ),
                       const SizedBox(
@@ -225,6 +243,7 @@ class ContactUs2 extends StatelessWidget {
                         hintText: "Enter your message",
                         fillColor: Colors.white,
                         filled: true,
+                        errorStyle: TextStyle(color: Colors.white),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.zero,
                           borderSide: BorderSide(width: 1, color: Colors.white),
@@ -237,7 +256,7 @@ class ContactUs2 extends StatelessWidget {
                       maxLines: 5,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return '*Required';
+                          return 'Please enter your message';
                         }
                         return null;
                       },

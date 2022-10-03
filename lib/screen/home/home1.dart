@@ -6,7 +6,8 @@ import 'package:medapp_eksad/widget/button_color.dart';
 import 'package:show_up_animation/show_up_animation.dart';
 
 class Home1 extends StatelessWidget {
-  const Home1({Key? key}) : super(key: key);
+  Home1({Key? key, required this.wijet}) : super(key: key);
+  final Widget wijet;
 
   @override
   Widget build(BuildContext context) {

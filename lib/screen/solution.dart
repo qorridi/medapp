@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:medapp_eksad/api/setting_api.dart';
 import 'package:medapp_eksad/appbar/appbar_home.dart';
 import 'package:medapp_eksad/screen/contact_us/contact_us2.dart';
 import 'package:medapp_eksad/screen/footer.dart';
@@ -8,6 +10,7 @@ import 'package:medapp_eksad/screen/solution/our_solution3.dart';
 import 'package:medapp_eksad/screen_small/small_footer.dart';
 import 'package:medapp_eksad/screen_small/small_solution/small_solution1.dart';
 import 'package:medapp_eksad/screen_small/small_solution/small_solution2.dart';
+import 'package:medapp_eksad/widget/Scroll_top.dart';
 import 'package:medapp_eksad/widget/componen.dart';
 import 'package:medapp_eksad/widget/drawer.dart';
 import 'package:medapp_eksad/widget/responsive.dart';
@@ -39,7 +42,7 @@ class _SolutionsState extends State<Solutions> {
 
   @override
   Widget build(BuildContext context) {
-    setPageTitle('MeddApp Solutions', context);
+    setPageTitle('Our Solutions', context);
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
@@ -50,22 +53,33 @@ class _SolutionsState extends State<Solutions> {
               Colors.blue, Colors.black, Colors.black),
       drawer: const DrawerMedApp(),
       body: ResponsiveWidget.isSmallScreen(context)
-          ? ListView(
-              children: const [
-                SmallOurSolution(),
-                SmallOurSolution2(),
-                FooterSmall(),
+          ? Stack(
+              children: [
+                ListView(
+                  scrollDirection: Axis.vertical,
+                  controller: controller2,
+                  children: [
+                    SmallOurSolution(wijet: Button_scroll()),
+                    SmallOurSolution2(),
+                    FooterSmall(),
+                  ],
+                ),
               ],
             )
-          : ListView(
-              controller: controller2,
+          : Stack(
               children: [
-                OurSolution(
-                  button: ButtonSolution(context),
+                ListView(
+                  controller: controller2,
+                  children: [
+                    OurSolution(
+                      wijet: Button_scroll(),
+                      button: ButtonSolution(context),
+                    ),
+                    OurSolution2(),
+                    ContactUs2(),
+                    Footer(),
+                  ],
                 ),
-                OurSolution2(),
-                ContactUs2(),
-                Footer(),
               ],
             ),
     );
@@ -91,6 +105,37 @@ class _SolutionsState extends State<Solutions> {
             fontWeight: FontWeight.w500,
             letterSpacing: 1.1,
             color: Colors.white),
+      ),
+    );
+  }
+
+  ElevatedButton Button_scroll() {
+    return ElevatedButton(
+      onPressed: () {
+        _scrollToIndex(3780);
+      },
+      style: ElevatedButton.styleFrom(
+        primary: const Color(0xff1e5ea8),
+      ),
+      child: Text(
+        'CONTACT US',
+        style: GoogleFonts.poppins(
+            fontSize: 17, letterSpacing: 2, fontWeight: FontWeight.w500),
+      ),
+    );
+  }
+
+  ElevatedButton Button_scroll_small() {
+    return ElevatedButton(
+      onPressed: () {
+        _scrollToIndex(5410);
+      },
+      style: ElevatedButton.styleFrom(
+          primary: const Color(0xff1e5ea8), fixedSize: const Size(50, 20)),
+      child: Text(
+        'CONTACT US',
+        style: GoogleFonts.poppins(
+            fontSize: 15, letterSpacing: 1.5, fontWeight: FontWeight.w500),
       ),
     );
   }

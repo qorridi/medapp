@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 
 class ContactUs1_small extends StatefulWidget {
-  const ContactUs1_small({Key? key}) : super(key: key);
+  ContactUs1_small({Key? key, required this.wijet}) : super(key: key);
+  final Widget wijet;
 
   @override
   State<ContactUs1_small> createState() => _ContactUsState();

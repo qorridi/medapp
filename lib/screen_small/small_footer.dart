@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medapp_eksad/api/setting_api.dart';
+import 'package:medapp_eksad/api/sosmed_api.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FooterSmall extends StatelessWidget {
@@ -36,10 +38,22 @@ class FooterSmall extends StatelessWidget {
                         width: screenSize.width * 0.4,
                         height: screenSize.height * 0.08,
                         decoration: const BoxDecoration(
-                          //color: Colors.lightBlueAccent,
+                            //color: Colors.lightBlueAccent,
                             image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/logo/medapp-logo.png'),
+                                image:
+                                    AssetImage('assets/logo/medapp-logo.png'),
+                                fit: BoxFit.fill)),
+                      ),
+                      SizedBox(
+                        height: 7,
+                      ),
+                      Container(
+                        width: screenSize.width * 0.4,
+                        height: screenSize.height * 0.10,
+                        decoration: const BoxDecoration(
+                            //color: Colors.lightBlueAccent,
+                            image: DecorationImage(
+                                image: AssetImage('assets/logo/logo-eksad.png'),
                                 fit: BoxFit.fill)),
                       ),
                       const Spacer(),
@@ -65,55 +79,16 @@ class FooterSmall extends StatelessWidget {
                       Container(
                         width: screenSize.width,
                         height: screenSize.height * 0.03,
-                        padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.15),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenSize.width * 0.15),
                         //color: Colors.blue,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            IconButton(
-                              onPressed: () {
-                                launch(
-                                    'https://www.linkedin.com/company/pt-tiga-daya-digital-indonesia-triputra-group-eksad-technology');
-                              },
-                              icon: const Icon(
-                                FontAwesomeIcons.linkedinIn,
-                                size: 30,
-                              ),
-                              iconSize: 20,
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                launch(
-                                    'https://twitter.com/eksadtechnology/');
-                              },
-                              icon: const Icon(
-                                FontAwesomeIcons.twitter,
-                                size: 30,
-                              ),
-                              iconSize: 20,
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                launch(
-                                    'https://www.instagram.com/eksad_technology/');
-                              },
-                              icon: const Icon(
-                                FontAwesomeIcons.instagram,
-                                size: 30,
-                              ),
-                              iconSize: 20,
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                launch(
-                                    'https://www.youtube.com/channel/UCiZgIbpWgrAMrHW-TaS9EPw');
-                              },
-                              icon: const Icon(
-                                FontAwesomeIcons.youtube,
-                                size: 30,
-                              ),
-                              iconSize: 20,
-                            )
+                            ApiLinkedin(),
+                            ApiTwitter(),
+                            ApiInstagram(),
+                            ApiYoutube(),
                           ],
                         ),
                       ),
@@ -163,16 +138,16 @@ class FooterSmall extends StatelessWidget {
                         width: screenSize.width,
                         height: screenSize.height * 0.06,
                         child: const itemBawah_small(
-                          item: 'Service',
-                          routeName: '/service',
+                          item: 'Solutions',
+                          routeName: '/solutions',
                         ),
                       ),
                       Container(
                         width: screenSize.width,
                         height: screenSize.height * 0.06,
                         child: const itemBawah_small(
-                          item: 'Career',
-                          routeName: '/career',
+                          item: 'Contact Us',
+                          routeName: '/contact',
                         ),
                       ),
                       Spacer()
@@ -180,7 +155,7 @@ class FooterSmall extends StatelessWidget {
                   )),
               Container(
                   width: screenSize.width,
-                  height: screenSize.height * 0.35,
+                  height: screenSize.height * 0.25,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -198,37 +173,12 @@ class FooterSmall extends StatelessWidget {
                           ),
                         ),
                       ),
-
                       Container(
                         width: screenSize.width,
-                        height: screenSize.height * 0.06,
-                        child: const itemBawah_small(
-                          item: 'Retained Search',
-                          routeName: '/service',
-                        ),
-                      ),
-                      Container(
-                        width: screenSize.width,
-                        height: screenSize.height * 0.06,
-                        child: const itemBawah_small(
-                          item: 'Dedicated Services',
-                          routeName: '/service',
-                        ),
-                      ),
-                      Container(
-                        width: screenSize.width,
-                        height: screenSize.height * 0.06,
-                        child: const itemBawah_small(
-                          item: 'Contract Services',
-                          routeName: '/service',
-                        ),
-                      ),
-                      Container(
-                        width: screenSize.width,
-                        height: screenSize.height * 0.06,
-                        child: const itemBawah_small(
-                          item: 'Recruitment',
-                          routeName: '/service',
+                        height: screenSize.height * 0.04,
+                        child: itemBawah_small(
+                          item: 'Catalog',
+                          routeName: '/solutions',
                         ),
                       ),
                     ],
@@ -256,56 +206,11 @@ class FooterSmall extends StatelessWidget {
                         ),
                         Column(
                           children: [
+                            TelphoneApi(),
+                            EmailAPI(),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.15),
-                              width: screenSize.width,
-                              child: ListTile(
-                                minLeadingWidth: 2,
-                                leading: const Icon(
-                                  Icons.phone,
-                                  size: 19,
-                                  color: Colors.black,
-                                ),
-                                title: TextButton(
-                                    onPressed: () {
-                                      launch('tel:02157958040');
-                                    },
-                                    child: Text(
-                                      '(021) 5795 - 8040',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 14,
-                                        color: Colors.black87,
-                                      ),
-                                    )),
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.15),
-                              width: screenSize.width ,
-
-                              child: ListTile(
-                                minLeadingWidth: 2,
-                                leading: const Icon(
-                                  Icons.mail,
-                                  size: 19,
-                                  color: Colors.black,
-                                ),
-                                title: TextButton(
-                                  onPressed: () {
-                                    launch(
-                                        'mailto:Info@eksad.com?subject=Info MCS');
-                                  },
-                                  child: Text(
-                                    'info@eksad.com',
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 14, color: Colors.black87,letterSpacing: 1.1),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-
-                              padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.15),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenSize.width * 0.15),
                               width: screenSize.width,
                               child: ListTile(
                                   minLeadingWidth: 2,
@@ -319,23 +224,19 @@ class FooterSmall extends StatelessWidget {
                                     width: screenSize.width * 0.48,
                                     child: Text(
                                       'PT. Tiga Daya Digital Indonesia \nThe East '
-                                          'Tower 19th Floor \nJl. Dr. Ide Anak Agung '
-                                          '\nGde Agung Blok E3.2 '
-                                          '\nMega Kuningan, \nJakarta Selatan 12950',
+                                      'Tower 19th Floor \nJl. Dr. Ide Anak Agung '
+                                      '\nGde Agung Blok E3.2 '
+                                      '\nMega Kuningan, \nJakarta Selatan 12950',
                                       style: GoogleFonts.poppins(
                                           fontSize: 13,
                                           height: 1.45,
-                                          letterSpacing: 1.1
-                                      ),
-                                      textAlign: TextAlign.left,
+                                          letterSpacing: 1.1),
+                                      textAlign: TextAlign.center,
                                     ),
                                   )),
                             ),
                           ],
                         ),
-
-
-
                       ],
                     )),
               ),
@@ -350,11 +251,11 @@ class FooterSmall extends StatelessWidget {
           width: screenSize.width,
           height: screenSize.height * 0.12,
           child: const Center(
-              child: Text(
-                'PT. Tiga Daya Digital Indonesia © 2018, \nAll Rights Reserved.',
-                style: TextStyle(letterSpacing: 1.3, height: 1.4, fontSize: 13),
-                textAlign: TextAlign.center,
-              ),
+            child: Text(
+              'PT. Tiga Daya Digital Indonesia © 2018, \nAll Rights Reserved.',
+              style: TextStyle(letterSpacing: 1.3, height: 1.4, fontSize: 13),
+              textAlign: TextAlign.center,
+            ),
           ),
         )
       ],
@@ -380,8 +281,252 @@ class itemBawah_small extends StatelessWidget {
               color: const Color(0xff1e5ea8),
               //decoration: TextDecoration.underline,
               fontSize: 17,
-              letterSpacing: 1.2
-          ),
+              letterSpacing: 1.2),
         ));
+  }
+}
+
+class ApiLinkedin extends StatefulWidget {
+  const ApiLinkedin({Key? key}) : super(key: key);
+
+  @override
+  State<ApiLinkedin> createState() => _ApiLinkedinState();
+}
+
+class _ApiLinkedinState extends State<ApiLinkedin> {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<dynamic>>(
+      future: getLnDesc(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        var pgm = snapshot.data[0];
+
+        if (snapshot.hasError ||
+            snapshot.data == null ||
+            snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return IconButton(
+            onPressed: () {
+              // ln = ;
+              launch(pgm['linkedin']);
+              // _launchLinkedIn();
+            },
+            icon: const Icon(
+              FontAwesomeIcons.linkedinIn,
+              size: 25,
+            ),
+            iconSize: 35,
+            color: Colors.black);
+      },
+    );
+  }
+}
+
+class ApiTwitter extends StatefulWidget {
+  const ApiTwitter({Key? key}) : super(key: key);
+
+  @override
+  State<ApiTwitter> createState() => _ApiTwitterState();
+}
+
+class _ApiTwitterState extends State<ApiTwitter> {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<dynamic>>(
+      future: getTwDesc(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        var pgm = snapshot.data[0];
+
+        if (snapshot.hasError ||
+            snapshot.data == null ||
+            snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return IconButton(
+            onPressed: () {
+              // ln = ;
+              launch(pgm['twitter']);
+              // _launchLinkedIn();
+            },
+            icon: const Icon(
+              FontAwesomeIcons.twitter,
+              size: 25,
+            ),
+            iconSize: 35,
+            color: Colors.black);
+      },
+    );
+  }
+}
+
+class ApiInstagram extends StatefulWidget {
+  const ApiInstagram({Key? key}) : super(key: key);
+
+  @override
+  State<ApiInstagram> createState() => _ApiInstagramState();
+}
+
+class _ApiInstagramState extends State<ApiInstagram> {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<dynamic>>(
+      future: getIgDesc(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        var pgm = snapshot.data[0];
+
+        if (snapshot.hasError ||
+            snapshot.data == null ||
+            snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return IconButton(
+            onPressed: () {
+              // ln = ;
+              launch(pgm['instagram']);
+              // _launchLinkedIn();
+            },
+            icon: const Icon(
+              FontAwesomeIcons.instagram,
+              size: 25,
+            ),
+            iconSize: 35,
+            color: Colors.black);
+      },
+    );
+  }
+}
+
+class ApiYoutube extends StatefulWidget {
+  const ApiYoutube({Key? key}) : super(key: key);
+
+  @override
+  State<ApiYoutube> createState() => _ApiYoutubeState();
+}
+
+class _ApiYoutubeState extends State<ApiYoutube> {
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<List<dynamic>>(
+        future: getYtDesc(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          var pgm = snapshot.data[0];
+
+          if (snapshot.hasError ||
+              snapshot.data == null ||
+              snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          }
+          return IconButton(
+              onPressed: () {
+                // ln = ;
+                launch(pgm['youtube']);
+                // _launchLinkedIn();
+              },
+              icon: const Icon(
+                FontAwesomeIcons.youtube,
+                size: 25,
+              ),
+              iconSize: 35,
+              color: Colors.black);
+        });
+  }
+}
+
+class TelphoneApi extends StatefulWidget {
+  const TelphoneApi({Key? key}) : super(key: key);
+
+  @override
+  State<TelphoneApi> createState() => _TelphoneApiState();
+}
+
+class _TelphoneApiState extends State<TelphoneApi> {
+  String no = '';
+  @override
+  Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+    return FutureBuilder<List<dynamic>>(
+      future: getSettingDesc(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        var pgm = snapshot.data[0];
+        if (snapshot.hasError ||
+            snapshot.data == null ||
+            snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.15),
+          width: screenSize.width,
+          child: ListTile(
+            minLeadingWidth: 2,
+            leading: const Icon(
+              Icons.phone,
+              size: 19,
+              color: Colors.black,
+            ),
+            title: TextButton(
+                onPressed: () {
+                  no = pgm['no'];
+                  //02157958040
+                  launch('tel:$no');
+                },
+                child: Text(
+                  pgm['no'],
+                  style: GoogleFonts.poppins(
+                      fontSize: 14, color: Colors.black87, letterSpacing: 1.5),
+                )),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class EmailAPI extends StatefulWidget {
+  const EmailAPI({Key? key}) : super(key: key);
+
+  @override
+  State<EmailAPI> createState() => _EmailAPIState();
+}
+
+class _EmailAPIState extends State<EmailAPI> {
+  String email = '';
+  @override
+  Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+    return FutureBuilder<List<dynamic>>(
+      future: getSettingDesc(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        var pgm = snapshot.data[0];
+        if (snapshot.hasError ||
+            snapshot.data == null ||
+            snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        }
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.15),
+          width: screenSize.width,
+          child: ListTile(
+            minLeadingWidth: 2,
+            leading: const Icon(
+              Icons.mail,
+              size: 19,
+              color: Colors.black,
+            ),
+            title: TextButton(
+                onPressed: () {
+                  email = pgm['email'];
+                  launch('mailto:$email?subject=Info Medapp');
+                },
+                // child: SettingAPI(),
+                child: Text(
+                  pgm['email'],
+                  style: GoogleFonts.poppins(
+                      fontSize: 14, color: Colors.black87, letterSpacing: 1.1),
+                )),
+          ),
+        );
+      },
+    );
   }
 }

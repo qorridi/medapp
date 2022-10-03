@@ -164,15 +164,16 @@ class _RegisterPicState extends State<RegisterPic> {
                             const SizedBox(
                               width: 30,
                             ),
+                            
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                // ===============telepon rs==========
+                                // ===============nama pic=============
                                 Row(
                                   children: [
                                     Icon(
-                                      Icons.phone_android,
+                                      Icons.drive_file_rename_outline,
                                       color: Colors.grey[500],
                                       size: screenize.width * 0.01,
                                     ),
@@ -180,7 +181,7 @@ class _RegisterPicState extends State<RegisterPic> {
                                       width: 10,
                                     ),
                                     const Text(
-                                      "No Telepon Rumah Sakit",
+                                      "Nama PIC",
                                       style: TextStyle(fontSize: 13),
                                     ),
                                   ],
@@ -194,28 +195,26 @@ class _RegisterPicState extends State<RegisterPic> {
                                       height: 60,
                                       width: screenize.width * 0.2,
                                       child: TextFormField(
-                                        controller: phoneRSController,
+                                        controller: namePICController,
                                         textAlign: TextAlign.start,
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return "Nomor Telepon Rumah Sakit tidak boleh kosong";
-                                          }
-                                          return null;
-                                        },
                                         decoration: InputDecoration(
-                                            labelText:
-                                                "Nomor Telepon Rumah Sakit",
+                                            labelText: "Nama PIC",
                                             labelStyle: TextStyle(fontSize: 13),
-                                            hintStyle: const TextStyle(),
                                             border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(5.0),
                                             )),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return "Nama PIC tidak boleh kosong";
+                                          }
+                                          return null;
+                                        },
                                       ),
                                     )
                                   ],
                                 ),
-                                // ===============akhir telepon rs==========
+                                // ===============akhir nama pic=============
                               ],
                             ),
                           ],
@@ -279,118 +278,7 @@ class _RegisterPicState extends State<RegisterPic> {
                             const SizedBox(
                               width: 30,
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                // ===============nama pic=============
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.drive_file_rename_outline,
-                                      color: Colors.grey[500],
-                                      size: screenize.width * 0.01,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    const Text(
-                                      "Nama PIC",
-                                      style: TextStyle(fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 60,
-                                      width: screenize.width * 0.2,
-                                      child: TextFormField(
-                                        controller: namePICController,
-                                        textAlign: TextAlign.start,
-                                        decoration: InputDecoration(
-                                            labelText: "Nama PIC",
-                                            labelStyle: TextStyle(fontSize: 13),
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                            )),
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return "Nama PIC tidak boleh kosong";
-                                          }
-                                          return null;
-                                        },
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                // ===============akhir nama pic=============
-                              ],
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                // ===============telepon pic==========
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.phone_android,
-                                      color: Colors.grey[500],
-                                      size: screenize.width * 0.01,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    const Text(
-                                      "No Telepon PIC",
-                                      style: TextStyle(fontSize: 13),
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  children: [
-                                    SizedBox(
-                                      height: 60,
-                                      width: screenize.width * 0.2,
-                                      child: TextFormField(
-                                        controller: phonePICController,
-                                        textAlign: TextAlign.start,
-                                        validator: (value) {
-                                          if (value == null || value.isEmpty) {
-                                            return "Nomor Telepon PIC tidak boleh kosong";
-                                          }
-                                          return null;
-                                        },
-                                        decoration: InputDecoration(
-                                            labelText: "Nomor Telepon PIC",
-                                            labelStyle: TextStyle(fontSize: 13),
-                                            hintStyle: const TextStyle(),
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5.0),
-                                            )),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                                // ===============akhir telepon pic==========
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 30,
-                            ),
+                            
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -442,6 +330,123 @@ class _RegisterPicState extends State<RegisterPic> {
                                   ],
                                 ),
                                 // ===============akhir email pic==========
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                // ===============telepon rs==========
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.phone_android,
+                                      color: Colors.grey[500],
+                                      size: screenize.width * 0.01,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    const Text(
+                                      "No Telepon Rumah Sakit",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 60,
+                                      width: screenize.width * 0.2,
+                                      child: TextFormField(
+                                        controller: phoneRSController,
+                                        textAlign: TextAlign.start,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return "Nomor Telepon Rumah Sakit tidak boleh kosong";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: InputDecoration(
+                                            labelText:
+                                                "Nomor Telepon Rumah Sakit",
+                                            labelStyle: TextStyle(fontSize: 13),
+                                            hintStyle: const TextStyle(),
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                            )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                // ===============akhir telepon rs==========
+                              ],
+                            ),
+
+                            
+                            const SizedBox(
+                              width: 30,
+                            ),
+                            
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                // ===============telepon pic==========
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.phone_android,
+                                      color: Colors.grey[500],
+                                      size: screenize.width * 0.01,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    const Text(
+                                      "No Telepon PIC",
+                                      style: TextStyle(fontSize: 13),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    SizedBox(
+                                      height: 60,
+                                      width: screenize.width * 0.2,
+                                      child: TextFormField(
+                                        controller: phonePICController,
+                                        textAlign: TextAlign.start,
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return "Nomor Telepon PIC tidak boleh kosong";
+                                          }
+                                          return null;
+                                        },
+                                        decoration: InputDecoration(
+                                            labelText: "Nomor Telepon PIC",
+                                            labelStyle: TextStyle(fontSize: 13),
+                                            hintStyle: const TextStyle(),
+                                            border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5.0),
+                                            )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                // ===============akhir telepon pic==========
                               ],
                             ),
                           ],

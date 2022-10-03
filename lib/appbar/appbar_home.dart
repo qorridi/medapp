@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:medapp_eksad/widget/button_appbar.dart';
 import 'package:medapp_eksad/register.dart';
+import 'package:provider/provider.dart';
+import 'package:medapp_eksad/firebase/firebase_auth_methods.dart';
 
 
 AppBar AppbarHomeLarge(Size screenSize, BuildContext context, Color home,
@@ -34,7 +37,7 @@ AppBar AppbarHomeLarge(Size screenSize, BuildContext context, Color home,
         const Spacer(
           flex: 1,
         ),
-        ButtonAppbar_baru(arah: '/', menu: 'About Us', warna: aboutUs),
+        ButtonAppbar_baru(arah: '/about', menu: 'About Us', warna: aboutUs),
         const Spacer(
           flex: 1,
         ),
@@ -144,6 +147,7 @@ AppBar AppbarHomeLargeUser(Size screenSize, BuildContext context, Color home,
         ),
         ElevatedButton(
           onPressed: () {
+            context.read<FirebaseAuthMethods>().signOut(context);
             Navigator.pushNamed(context, '/');
           },
           style: ElevatedButton.styleFrom(

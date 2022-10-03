@@ -11,7 +11,6 @@ export 'package:medapp_eksad/screen/solution/our_solution.dart';
 export 'package:medapp_eksad/screen/solution/our_solution2.dart';
 export 'package:medapp_eksad/screen/contact_us/contact_us1.dart';
 export 'package:medapp_eksad/screen/contact_us/contact_us2.dart';
-export 'package:medapp_eksad/screen_small/small_footer.dart';
 export 'package:medapp_eksad/screen_small/small_contact/small_contact_us1.dart';
 export 'package:medapp_eksad/screen_small/small_contact/small_contact_us2.dart';
 export 'package:medapp_eksad/screen_small/small_home/small_home1.dart';

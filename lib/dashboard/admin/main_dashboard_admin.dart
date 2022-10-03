@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_contact.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_dashboard.dart';
+import 'package:medapp_eksad/dashboard/admin/admin_setting.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_sosmed.dart';
+import 'package:medapp_eksad/dashboard/admin/admin_userControl.dart';
 import 'package:medapp_eksad/dashboard/admin/admin_whatsapp.dart';
+import 'package:provider/provider.dart';
+import 'package:medapp_eksad/firebase/firebase_auth_methods.dart';
 
 class DashboardAdmin extends StatefulWidget {
   const DashboardAdmin({Key? key}) : super(key: key);
@@ -22,10 +26,13 @@ class _DashboardAdminState extends State<DashboardAdmin> {
         backgroundColor: Colors.white,
         leadingWidth: 230,
         leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8,horizontal: 30),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
           child: Container(
             width: 200,
-            decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/logo/medapp-logo.png'),fit: BoxFit.fill)),
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/logo/medapp-logo.png'),
+                    fit: BoxFit.fill)),
           ),
         ),
         actions: [
@@ -52,7 +59,6 @@ class _DashboardAdminState extends State<DashboardAdmin> {
               style: TextStyle(),
             ),
           ),
-
         ],
       ),
       body: Row(
@@ -76,7 +82,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
               // decoration: BoxDecoration(
               //   borderRadius: BorderRadius.all(Radius.circular(10)),
               // ),
-               backgroundColor: Colors.blueAccent[200],
+              backgroundColor: Colors.blueAccent[200],
             ),
             title: Column(
               children: [
@@ -93,7 +99,9 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                 //   indent: 8.0,
                 //   endIndent: 8.0,
                 // ),
-                Container(height: 20,)
+                Container(
+                  height: 20,
+                )
               ],
             ),
             footer: const Padding(
@@ -118,7 +126,7 @@ class _DashboardAdminState extends State<DashboardAdmin> {
               ),
               SideMenuItem(
                 priority: 1,
-                title: 'Files',
+                title: 'Setting',
                 onTap: () {
                   page.jumpToPage(1);
                 },
@@ -140,7 +148,13 @@ class _DashboardAdminState extends State<DashboardAdmin> {
                 },
                 icon: const Icon(Icons.contact_mail),
               ),
-
+              SideMenuItem(
+                  onTap: () {
+                    page.jumpToPage(4);
+                  },
+                  title: 'User Control',
+                  icon: const Icon(Icons.admin_panel_settings),
+                  priority: 4)
             ],
           ),
           Expanded(
@@ -148,18 +162,11 @@ class _DashboardAdminState extends State<DashboardAdmin> {
               controller: page,
               children: [
                 const Dashboard1(),
-                Container(
-                  color: Colors.white,
-                  child: const Center(
-                    child: Text(
-                      'Files',
-                      style: TextStyle(fontSize: 35),
-                    ),
-                  ),
-                ),
+                SettingDashboard(),
                 SosmedDashboard(),
                 //Dashboard3(),
                 Dashboard4(),
+                UserControl()
               ],
             ),
           ),
