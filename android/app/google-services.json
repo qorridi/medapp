@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "806811359126",
+    "project_id": "medapp-by-eksad",
+    "storage_bucket": "medapp-by-eksad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806811359126:android:30acc5ba52e4ec63336fb7",
+        "android_client_info": {
+          "package_name": "com.example.medapp_eksad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806811359126-u6dgf8qamfdnn3ga32u7ppdot00e92bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwbsx4RbqVDPIMfESYw4NIaUCxedQpxHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806811359126-u6dgf8qamfdnn3ga32u7ppdot00e92bn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "806811359126-32g1e7m46rra6sjidfah3fauor5sq511.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.medappEksad"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
