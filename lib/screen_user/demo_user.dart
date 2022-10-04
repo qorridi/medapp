@@ -43,98 +43,7 @@ class _DemoUserState extends State<DemoUser> {
       drawer: const DrawerMedApp(),
       body: ResponsiveWidget.isSmallScreen(context)
           ? Container(
-        padding: EdgeInsets.symmetric(horizontal: screenSize.width*0.1),
-            width: screenSize.width,
-            height: screenSize.height,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Center(
-                  child: Text(
-                    'Welcome, $mail',
-                    style: GoogleFonts.poppins(fontSize: 25),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: (){},
-                    leading: Icon(
-                      Icons.download,
-                      size: 40,
-                    ),
-                    title: Text(
-                      'Download APK',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: (){},
-                    leading: Icon(
-                      Icons.tv,
-                      size: 40,
-                    ),
-                    title: Text(
-                      'TV Display',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: (){},
-                    leading: Icon(
-                      Icons.phone_android,
-                      size: 40,
-                    ),
-                    title: Text(
-                      'Kiosk',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    onTap: (){},
-                    leading: Icon(
-                      Icons.browser_updated,
-                      size: 40,
-                    ),
-                    title: Text(
-                      'Website Admin',
-                      style: GoogleFonts.poppins(
-                          fontSize: 20, fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    context.read<FirebaseAuthMethods>().signOut(context);
-                    Navigator.pushNamed(context, '/');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xff1e5ea8),
-                    fixedSize: const Size(130, 45),
-                    onPrimary: Colors.red,
-                  ),
-                  child: const Text(
-                    'Logout',
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 19, fontWeight: FontWeight.w500),
-                  ),
-                ),
-              ],
-            ),
-          )
-          : Container(
+              padding: EdgeInsets.symmetric(horizontal: screenSize.width * 0.1),
               width: screenSize.width,
               height: screenSize.height,
               child: Column(
@@ -146,71 +55,118 @@ class _DemoUserState extends State<DemoUser> {
                       style: GoogleFonts.poppins(fontSize: 25),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Box(
-                        wijet: ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.download,
-                            size: 40,
-                          ),
-                          label: Text(
-                            'Download APK',
-                            style: GoogleFonts.poppins(
-                                fontSize: 20, fontWeight: FontWeight.w600),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                  Card(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: const Icon(
+                        Icons.download,
+                        size: 40,
                       ),
-                      Box(
-                        wijet: ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.tv,
-                            size: 40,
-                          ),
-                          label: Text(
-                            'TV Display',
-                            style: GoogleFonts.poppins(
-                                fontSize: 20, fontWeight: FontWeight.w600),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                      title: Text(
+                        'Download APK',
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
                       ),
-                      Box(
-                        wijet: ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.phone_android,
-                            size: 40,
-                          ),
-                          label: Text(
-                            'Kiosk',
-                            style: GoogleFonts.poppins(
-                                fontSize: 20, fontWeight: FontWeight.w600),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                      Box(
-                        wijet: ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.browser_updated,
-                            size: 40,
-                          ),
-                          label: Text(
-                            'Web Admin',
-                            style: GoogleFonts.poppins(
-                                fontSize: 20, fontWeight: FontWeight.w600),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
+                  Card(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: const Icon(
+                        Icons.tv,
+                        size: 40,
+                      ),
+                      title: Text(
+                        'TV Display',
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: const Icon(
+                        Icons.phone_android,
+                        size: 40,
+                      ),
+                      title: Text(
+                        'Kiosk',
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: ListTile(
+                      onTap: () {},
+                      leading: const Icon(
+                        Icons.browser_updated,
+                        size: 40,
+                      ),
+                      title: Text(
+                        'Website Admin',
+                        style: GoogleFonts.poppins(
+                            fontSize: 20, fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<FirebaseAuthMethods>().signOut(context);
+                      Navigator.pushNamed(context, '/');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color(0xff1e5ea8),
+                      fixedSize: const Size(130, 45),
+                      onPrimary: Colors.red,
+                    ),
+                    child: const Text(
+                      'Logout',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 19,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          : Container(
+              width: screenSize.width,
+              height: screenSize.height,
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    width: screenSize.width,
+                    height: screenSize.height * 0.1,
+                    child: Center(
+                      child: Text(
+                        'Welcome, $mail',
+                        style: GoogleFonts.poppins(fontSize: 25),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 20),
+                      width: screenSize.width,
+                      height: screenSize.height * 0.75,
+                      //color: Colors.grey,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          DemoBox(screenSize: screenSize, namaImage: 'demo1.png', namaButton: 'MOBILE', deskripsiDemo: 'Patient Application'),
+                          DemoBox(screenSize: screenSize, namaImage: 'demo2.png', namaButton: 'KISOK', deskripsiDemo: 'Patient Application'),
+                          DemoBox(screenSize: screenSize, namaImage: 'demo3.png', namaButton: 'DISPLAY TV', deskripsiDemo: 'Patient Application'),
+                          DemoBox(screenSize: screenSize, namaImage: 'demo4.png', namaButton: 'WEB CONSOLE', deskripsiDemo: 'Patient Application'),
+
+                        ],
+                      )),
                 ],
               ),
             ),
@@ -236,6 +192,55 @@ class _DemoUserState extends State<DemoUser> {
       ),
 
       // ),
+    );
+  }
+}
+
+class DemoBox extends StatelessWidget {
+  const DemoBox({
+    Key? key,
+    required this.screenSize,
+    required this.namaImage,
+    required this.namaButton,
+    required this.deskripsiDemo
+  }) : super(key: key);
+
+  final String namaImage;
+  final String namaButton;
+  final String deskripsiDemo;
+  final Size screenSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: screenSize.width * 0.2,
+      height: screenSize.height,
+      //color: Colors.green,
+      child: Column(
+        children: [
+          Container(
+            width: screenSize.width,
+            height: screenSize.height * 0.6,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                        'assets/images/$namaImage'),
+                    fit: BoxFit.fill)),
+          ),
+          SizedBox(height: 12,),
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              namaButton,
+              style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  decoration: TextDecoration.underline,
+                  color: Colors.black),
+            ),
+          ),
+          Text(deskripsiDemo,style: GoogleFonts.poppins(fontSize: 18),)
+        ],
+      ),
     );
   }
 }
