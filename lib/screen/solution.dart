@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medapp_eksad/api/setting_api.dart';
@@ -17,6 +18,7 @@ import 'package:medapp_eksad/widget/componen.dart';
 import 'package:medapp_eksad/widget/drawer.dart';
 import 'package:medapp_eksad/widget/responsive.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 void setPageTitle(String title, BuildContext context) {
   SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
@@ -46,6 +48,50 @@ class _SolutionsState extends State<Solutions> {
   Widget build(BuildContext context) {
     setPageTitle('Our Solutions', context);
     var screenSize = MediaQuery.of(context).size;
+    final firebaseUser = context.watch<User?>();
+
+    if (firebaseUser != null) {
+      return Scaffold(
+        key: _scaffoldKey,
+        floatingActionButton: WAChat(),
+        appBar: ResponsiveWidget.isSmallScreen(context)
+            ? AppBarKecil()
+            : AppbarHomeLargeUser(screenSize, context, Colors.black, Colors.black,
+            Colors.blue, Colors.black, Colors.black, Colors.black),
+        drawer: const DrawerMedApp(),
+        body: ResponsiveWidget.isSmallScreen(context)
+            ? Stack(
+          children: [
+            ListView(
+              scrollDirection: Axis.vertical,
+              controller: controller2,
+              children: [
+                SmallOurSolution(wijet: Button_scroll()),
+                SmallOurSolution2(),
+                FooterSmall(),
+              ],
+            ),
+          ],
+        )
+            : Stack(
+          children: [
+            ListView(
+              controller: controller2,
+              children: [
+                OurSolution(
+                  wijet: Button_scroll(),
+                  button: ButtonSolution(context),
+                ),
+                OurSolution2(),
+                Home4test(),
+                ContactUs2(),
+                Footer(),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
     return Scaffold(
       key: _scaffoldKey,
       floatingActionButton: WAChat(),

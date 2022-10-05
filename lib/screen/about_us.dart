@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medapp_eksad/api/setting_api.dart';
@@ -19,6 +20,7 @@ import 'package:medapp_eksad/widget/drawer.dart';
 import 'package:medapp_eksad/widget/responsive.dart';
 import 'package:medapp_eksad/widget/whatsapp.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 void setPageTitle(String title, BuildContext context) {
   SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
@@ -56,6 +58,51 @@ class _AboutUsState extends State<AboutUs> {
   Widget build(BuildContext context) {
     setPageTitle('About Us', context);
     var screenSize = MediaQuery.of(context).size;
+    final firebaseUser = context.watch<User?>();
+    if (firebaseUser != null) {
+      return Scaffold(
+        key: _scaffoldKey,
+        floatingActionButton: WAChat(),
+        appBar: ResponsiveWidget.isSmallScreen(context)
+            ? AppBarKecil()
+            : AppbarHomeLargeUser(screenSize, context, Colors.black, Colors.blue,
+            Colors.black, Colors.black, Colors.black, Colors.black),
+        drawer: const DrawerMedApp(),
+        body: ResponsiveWidget.isSmallScreen(context)
+            ? Stack(
+          children: [
+            ListView(
+              scrollDirection: Axis.vertical,
+              controller: controller2,
+              children: [
+                SmallHome1(wijet: Button_scroll_small()),
+                SmallHome2(),
+                SmallHome3(),
+                SmallHome4(),
+                ContactUs2_small(),
+                FooterSmall(),
+              ],
+            ),
+          ],
+        )
+            : Stack(
+          children: [
+            ListView(
+              scrollDirection: Axis.vertical,
+              controller: controller2,
+              children: [
+                Home1(wijet: Button_scroll()),
+                const Home2(),
+                const Home3(),
+                const Home4(),
+                ContactUs2(),
+                Footer(),
+              ],
+            ),
+          ],
+        ),
+      );
+    }
     return Scaffold(
       key: _scaffoldKey,
       floatingActionButton: WAChat(),

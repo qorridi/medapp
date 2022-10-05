@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medapp_eksad/api/setting_api.dart';
@@ -13,6 +14,7 @@ import 'package:medapp_eksad/widget/drawer.dart';
 import 'package:medapp_eksad/widget/responsive.dart';
 import 'package:medapp_eksad/widget/whatsapp.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 void setPageTitle(String title, BuildContext context) {
   SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
@@ -50,6 +52,46 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     setPageTitle('Contact Us', context);
     var screenSize = MediaQuery.of(context).size;
+    final firebaseUser = context.watch<User?>();
+
+    if (firebaseUser != null) {
+      return Scaffold(
+          key: _scaffoldKey,
+          appBar: ResponsiveWidget.isSmallScreen(context)
+              ? AppBarKecil()
+              : AppbarHomeLargeUser(screenSize, context, Colors.black, Colors.black,
+              Colors.black, Colors.black, Colors.blue, Colors.black),
+          drawer: const DrawerMedApp(),
+          body: ResponsiveWidget.isSmallScreen(context)
+              ? Stack(
+            children: [
+              ListView(
+                scrollDirection: Axis.vertical,
+                controller: controller2,
+                children: [
+                  ContactUs1_small(wijet: Button_scroll_small()),
+                  ContactUs2_small(),
+                  FooterSmall(),
+                ],
+              ),
+            ],
+          )
+              : Stack(
+            children: [
+              ListView(
+                scrollDirection: Axis.vertical,
+                controller: controller2,
+                children: [
+                  ContactUs1(wijet: Button_scroll()),
+                  ContactUs2(),
+                  Footer(),
+                ],
+              ),
+            ],
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+          floatingActionButton: WAChat());
+    }
     return Scaffold(
         key: _scaffoldKey,
         appBar: ResponsiveWidget.isSmallScreen(context)
