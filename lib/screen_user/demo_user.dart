@@ -153,18 +153,33 @@ class _DemoUserState extends State<DemoUser> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(bottom: 20),
+                      padding: EdgeInsets.only(bottom: 20),
                       width: screenSize.width,
                       height: screenSize.height * 0.75,
                       //color: Colors.grey,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          DemoBox(screenSize: screenSize, namaImage: 'demo1.png', namaButton: 'MOBILE', deskripsiDemo: 'Patient Application'),
-                          DemoBox(screenSize: screenSize, namaImage: 'demo2.png', namaButton: 'KISOK', deskripsiDemo: 'Patient Application'),
-                          DemoBox(screenSize: screenSize, namaImage: 'demo3.png', namaButton: 'DISPLAY TV', deskripsiDemo: 'Patient Application'),
-                          DemoBox(screenSize: screenSize, namaImage: 'demo4.png', namaButton: 'WEB CONSOLE', deskripsiDemo: 'Patient Application'),
-
+                          DemoBox(
+                              screenSize: screenSize,
+                              namaImage: 'demo1.png',
+                              namaButton: 'MOBILE',
+                              deskripsiDemo: 'Patient Application'),
+                          DemoBox(
+                              screenSize: screenSize,
+                              namaImage: 'demo2.png',
+                              namaButton: 'KIOSK',
+                              deskripsiDemo: 'Patient Application'),
+                          DemoBox(
+                              screenSize: screenSize,
+                              namaImage: 'demo3.png',
+                              namaButton: 'DISPLAY TV',
+                              deskripsiDemo: 'Patient Application'),
+                          DemoBox(
+                              screenSize: screenSize,
+                              namaImage: 'demo4.png',
+                              namaButton: 'WEB CONSOLE',
+                              deskripsiDemo: 'Patient Application'),
                         ],
                       )),
                 ],
@@ -197,13 +212,13 @@ class _DemoUserState extends State<DemoUser> {
 }
 
 class DemoBox extends StatelessWidget {
-  const DemoBox({
-    Key? key,
-    required this.screenSize,
-    required this.namaImage,
-    required this.namaButton,
-    required this.deskripsiDemo
-  }) : super(key: key);
+  const DemoBox(
+      {Key? key,
+      required this.screenSize,
+      required this.namaImage,
+      required this.namaButton,
+      required this.deskripsiDemo})
+      : super(key: key);
 
   final String namaImage;
   final String namaButton;
@@ -223,11 +238,12 @@ class DemoBox extends StatelessWidget {
             height: screenSize.height * 0.6,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(
-                        'assets/images/$namaImage'),
+                    image: AssetImage('assets/images/$namaImage'),
                     fit: BoxFit.fill)),
           ),
-          SizedBox(height: 12,),
+          SizedBox(
+            height: 12,
+          ),
           TextButton(
             onPressed: () {},
             child: Text(
@@ -238,7 +254,10 @@ class DemoBox extends StatelessWidget {
                   color: Colors.black),
             ),
           ),
-          Text(deskripsiDemo,style: GoogleFonts.poppins(fontSize: 18),)
+          Text(
+            deskripsiDemo,
+            style: GoogleFonts.poppins(fontSize: 18),
+          )
         ],
       ),
     );

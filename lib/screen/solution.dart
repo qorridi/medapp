@@ -6,7 +6,6 @@ import 'package:medapp_eksad/appbar/appbar_home.dart';
 import 'package:medapp_eksad/screen/contact_us/contact_us2.dart';
 import 'package:medapp_eksad/screen/footer.dart';
 import 'package:medapp_eksad/screen/home/home4.dart';
-import 'package:medapp_eksad/screen/home/home4test.dart';
 import 'package:medapp_eksad/screen/solution/our_solution.dart';
 import 'package:medapp_eksad/screen/solution/our_solution2.dart';
 import 'package:medapp_eksad/screen/solution/our_solution3.dart';
@@ -56,40 +55,47 @@ class _SolutionsState extends State<Solutions> {
         floatingActionButton: WAChat(),
         appBar: ResponsiveWidget.isSmallScreen(context)
             ? AppBarKecil()
-            : AppbarHomeLargeUser(screenSize, context, Colors.black, Colors.black,
-            Colors.blue, Colors.black, Colors.black, Colors.black),
+            : AppbarHomeLargeUser(
+                screenSize,
+                context,
+                Colors.black,
+                Colors.black,
+                Colors.blue,
+                Colors.black,
+                Colors.black,
+                Colors.black),
         drawer: const DrawerMedApp(),
         body: ResponsiveWidget.isSmallScreen(context)
             ? Stack(
-          children: [
-            ListView(
-              scrollDirection: Axis.vertical,
-              controller: controller2,
-              children: [
-                SmallOurSolution(wijet: Button_scroll()),
-                SmallOurSolution2(),
-                FooterSmall(),
-              ],
-            ),
-          ],
-        )
+                children: [
+                  ListView(
+                    scrollDirection: Axis.vertical,
+                    controller: controller2,
+                    children: [
+                      SmallOurSolution(wijet: Button_scroll()),
+                      SmallOurSolution2(),
+                      FooterSmall(),
+                    ],
+                  ),
+                ],
+              )
             : Stack(
-          children: [
-            ListView(
-              controller: controller2,
-              children: [
-                OurSolution(
-                  wijet: Button_scroll(),
-                  button: ButtonSolution(context),
-                ),
-                OurSolution2(),
-                Home4test(),
-                ContactUs2(),
-                Footer(),
-              ],
-            ),
-          ],
-        ),
+                children: [
+                  ListView(
+                    controller: controller2,
+                    children: [
+                      OurSolution(
+                        wijet: Button_scroll(),
+                        button: ButtonSolution(context),
+                      ),
+                      OurSolution2(),
+                      Home4(),
+                      ContactUs2(),
+                      Footer(),
+                    ],
+                  ),
+                ],
+              ),
       );
     }
     return Scaffold(
@@ -124,7 +130,7 @@ class _SolutionsState extends State<Solutions> {
                       button: ButtonSolution(context),
                     ),
                     OurSolution2(),
-                    Home4test(),
+                    Home4(),
                     ContactUs2(),
                     Footer(),
                   ],
