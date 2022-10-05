@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medapp_eksad/api/setting_api.dart';
@@ -14,11 +15,13 @@ import 'package:medapp_eksad/screen_small/small_home/small_home1.dart';
 import 'package:medapp_eksad/screen_small/small_home/small_home2.dart';
 import 'package:medapp_eksad/screen_small/small_home/small_home3.dart';
 import 'package:medapp_eksad/screen_small/small_home/small_home4.dart';
+import 'package:medapp_eksad/screen_user/demo_user.dart';
 import 'package:medapp_eksad/widget/Scroll_top.dart';
 import 'package:medapp_eksad/widget/drawer.dart';
 import 'package:medapp_eksad/widget/responsive.dart';
 import 'package:medapp_eksad/widget/whatsapp.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 void setPageTitle(String title, BuildContext context) {
   SystemChrome.setApplicationSwitcherDescription(ApplicationSwitcherDescription(
@@ -56,10 +59,77 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // setPageTitle('MedApp by Eksad', context);
     var screenSize = MediaQuery.of(context).size;
+    final firebaseUser = context.watch<User?>();
+    if (firebaseUser != null) {
+      return Scaffold(
+        key: _scaffoldKey,
+        floatingActionButton: WAChat(),
+        appBar:  ResponsiveWidget.isSmallScreen(context)
+            ? AppBarKecil()
+            : AppbarHomeLargeUser(screenSize, context, Colors.blue, Colors.black,
+            Colors.black, Colors.black, Colors.black, Colors.black),
+        drawer: const DrawerMedApp(),
+        body: ResponsiveWidget.isSmallScreen(context)
+            ? Stack(
+          children: [
+            FutureBuilder<dynamic>(
+              future: getSettingDesc2(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                var pgm = snapshot.data[0];
+                return Title(
+                  title: pgm['title'],
+                  color: Colors.white,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    controller: controller2,
+                    children: [
+                      SmallHome1(wijet: Button_scroll_small()),
+                      SmallHome2(),
+                      SmallHome3(),
+                      SmallHome4(),
+                      ContactUs2_small(),
+                      FooterSmall(),
+                    ],
+                  ),
+                );
+              },
+            ),
+            ScrollUpButton(controller2),
+          ],
+        )
+            : Stack(
+          children: [
+            FutureBuilder<dynamic>(
+              future: getSettingDesc2(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                var pgm = snapshot.data[0];
+                return Title(
+                  title: pgm['title'],
+                  color: Colors.white,
+                  child: ListView(
+                    scrollDirection: Axis.vertical,
+                    controller: controller2,
+                    children: [
+                      Home1(wijet: Button_scroll()),
+                      const Home2(),
+                      const Home3(),
+                      const Home4(),
+                      ContactUs2(),
+                      Footer(),
+                    ],
+                  ),
+                );
+              },
+            ),
+            ScrollUpButton(controller2),
+          ],
+        ),
+      );
+    }
     return Scaffold(
       key: _scaffoldKey,
       floatingActionButton: WAChat(),
-      appBar: ResponsiveWidget.isSmallScreen(context)
+      appBar:  ResponsiveWidget.isSmallScreen(context)
           ? AppBarKecil()
           : AppbarHomeLarge(screenSize, context, Colors.blue, Colors.black,
               Colors.black, Colors.black, Colors.black),

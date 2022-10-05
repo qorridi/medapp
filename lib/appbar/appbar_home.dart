@@ -122,7 +122,7 @@ AppBar AppbarHomeLargeUser(Size screenSize, BuildContext context, Color home,
         const Spacer(
           flex: 1,
         ),
-        ButtonAppbar_baru(arah: '/', menu: 'About Us', warna: aboutUs),
+        ButtonAppbar_baru(arah: '/about', menu: 'About Us', warna: aboutUs),
         const Spacer(
           flex: 1,
         ),
