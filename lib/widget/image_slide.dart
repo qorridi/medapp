@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
-  'images/slider1.png',
-  'images/slider5.png',
-  'images/slider2.png',
-  'images/slider3.png',
-  'images/slider4.png',
+  'assets/images/slider1.png',
+  'assets/images/slider5.png',
+  'assets/images/slider2.png',
+  'assets/images/slider3.png',
+  'assets/images/slider4.png',
 
 ];
 
