@@ -9,6 +9,7 @@ import 'package:medapp_eksad/screen/home/home4.dart';
 import 'package:medapp_eksad/screen/solution/our_solution.dart';
 import 'package:medapp_eksad/screen/solution/our_solution2.dart';
 import 'package:medapp_eksad/screen/solution/our_solution3.dart';
+import 'package:medapp_eksad/screen/solution/our_solution4.dart';
 import 'package:medapp_eksad/screen_small/small_footer.dart';
 import 'package:medapp_eksad/screen_small/small_solution/small_solution1.dart';
 import 'package:medapp_eksad/screen_small/small_solution/small_solution2.dart';
@@ -89,7 +90,7 @@ class _SolutionsState extends State<Solutions> {
                         button: ButtonSolution(context),
                       ),
                       OurSolution2(),
-                      Home4(),
+                      OurSolution4(),
                       ContactUs2(),
                       Footer(),
                     ],
@@ -130,7 +131,7 @@ class _SolutionsState extends State<Solutions> {
                       button: ButtonSolution(context),
                     ),
                     OurSolution2(),
-                    Home4(),
+                    OurSolution4(),
                     ContactUs2(),
                     Footer(),
                   ],

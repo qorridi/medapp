@@ -53,7 +53,7 @@ class OurSolution extends StatelessWidget {
                     direction: Direction.horizontal,
                     offset: -0.2,
                     child: Text(
-                      'Find & Get the Best Talent',
+                      'Try our Medapp',
                       style: GoogleFonts.poppins(
                           fontSize: 34,
                           fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class OurSolution extends StatelessWidget {
                     curve: Curves.decelerate,
                     direction: Direction.horizontal,
                     child: Text(
-                      'Register for free now, find our Best Talent, and enjoy our unlimited hires at a low cost',
+                      'Register for free now, download and try our software application. and enjoy',
                       style: GoogleFonts.poppins(
                           fontSize: 18,
                           letterSpacing: 1.8,

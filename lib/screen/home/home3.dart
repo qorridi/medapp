@@ -48,9 +48,7 @@ class _Home3State extends State<Home3> {
                               'assets/icons/queuesystem.png',
                               height: 60,
                               width: 60,
-                            )
-                        )
-                    ),
+                            ))),
                     const SizedBox(
                       height: 10,
                     ),
@@ -82,7 +80,9 @@ class _Home3State extends State<Home3> {
                   ],
                 ),
               ),
-              SizedBox(width: 50,),
+              SizedBox(
+                width: 50,
+              ),
               SizedBox(
                 width: screenSize.width * 0.2,
                 child: Column(
@@ -123,12 +123,14 @@ class _Home3State extends State<Home3> {
                         height: screenSize.height * 0.3,
                         child: const Animasi_Kanan_Kiri(
                             judul:
-                            'Patients can self-register through a mobile application or kiosk, '
+                                'Patients can self-register through a mobile application or kiosk, '
                                 'thereby reducing queues at the hospital.'))
                   ],
                 ),
               ),
-              SizedBox(width: 50,),
+              SizedBox(
+                width: 50,
+              ),
               SizedBox(
                 width: screenSize.width * 0.2,
                 child: Column(
@@ -169,10 +171,10 @@ class _Home3State extends State<Home3> {
                       height: screenSize.height * 0.3,
                       child: const Animasi_Kanan_Kiri(
                           judul:
-                          'Patients get notifications of queue movements so they can adjust their arrival schedule to the hospital. '
-                              // 'Arrivals close to this service time will have an impact on reducing the crowd of people queuing at the hospital. '
-                              // 'Queue information is integrated with the queue display panel in the hospital.'
-                      ),
+                              'Patients get notifications of queue movements so they can adjust their arrival schedule to the hospital. '
+                          // 'Arrivals close to this service time will have an impact on reducing the crowd of people queuing at the hospital. '
+                          // 'Queue information is integrated with the queue display panel in the hospital.'
+                          ),
                     ),
                   ],
                 ),
@@ -242,7 +244,9 @@ class _Home3State extends State<Home3> {
                   ],
                 ),
               ),
-              SizedBox(width: 50,),
+              SizedBox(
+                width: 50,
+              ),
               // SizedBox(
               //   width: screenSize.width * 0.2,
               //   child: Column(
@@ -302,7 +306,7 @@ class _Home3State extends State<Home3> {
               //     ],
               //   ),
               // ),
-            //  SizedBox(width: 50,),
+              //  SizedBox(width: 50,),
               SizedBox(
                 width: screenSize.width * 0.2,
                 child: Column(
@@ -365,7 +369,9 @@ class _Home3State extends State<Home3> {
                   ],
                 ),
               ),
-              SizedBox(width: 50,),
+              SizedBox(
+                width: 50,
+              ),
               SizedBox(
                 width: screenSize.width * 0.2,
                 child: Column(
@@ -412,7 +418,7 @@ class _Home3State extends State<Home3> {
                             height: screenSize.height * 0.3,
                             child: Text(
                               'Online consultation (via chat, telephone, or video call),'
-                                  ' Lab & Radiologi Result, and Drugs delivery, Impatient Management.',
+                              ' Lab & Radiologi Result, and Drugs delivery, Impatient Management.',
                               style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Home4 extends StatelessWidget {
-  const Home4({Key? key}) : super(key: key);
+class OurSolution4 extends StatelessWidget {
+  const OurSolution4({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class Home4 extends StatelessWidget {
               height: ScreenSize.height * 0.7,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/solution4.png'),
+                      image: AssetImage('assets/images/solution3.png'),
                       fit: BoxFit.fill)),
             ),
             Text(

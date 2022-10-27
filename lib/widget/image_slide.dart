@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
-  'assets/images/slider1.png',
-  'assets/images/slider5.png',
-  'assets/images/slider2.png',
-  'assets/images/slider3.png',
-  'assets/images/slider4.png',
-
+  'assets/images/Slide1.PNG',
+  'assets/images/Slide2.PNG',
+  'assets/images/Slide3.PNG',
+  'assets/images/Slide4.PNG',
+  'assets/images/Slide5.PNG',
+  'assets/images/Slide6.PNG',
+  'assets/images/Slide7.PNG',
+  'assets/images/Slide8.PNG',
+  'assets/images/Slide9.PNG',
+  'assets/images/Slide10.PNG',
+  'assets/images/Slide11.PNG'
 ];
 
 final List<Widget> imageSliders = imgList
@@ -69,17 +74,17 @@ class VerticalSlider extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: screenSize.width*0.8,
-            child: CarouselSlider(
-              carouselController: _controller,
-              options: CarouselOptions(
-                aspectRatio: 2.0,
-                enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-                autoPlay: false,
-              ),
-              items: imageSliders,
+          width: screenSize.width * 0.8,
+          child: CarouselSlider(
+            carouselController: _controller,
+            options: CarouselOptions(
+              aspectRatio: 2.0,
+              enlargeCenterPage: true,
+              scrollDirection: Axis.horizontal,
+              autoPlay: false,
             ),
+            items: imageSliders,
+          ),
         ),
         Center(
           child: Row(
@@ -90,15 +95,15 @@ class VerticalSlider extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => _controller.previousPage(),
                   child: Icon(Icons.arrow_back_ios_new_outlined),
-                style: ElevatedButton.styleFrom(primary: Colors.grey),
-              ),
+                  style: ElevatedButton.styleFrom(primary: Colors.grey),
+                ),
               ),
               Flexible(
                 child: ElevatedButton(
                   onPressed: () => _controller.nextPage(),
                   child: Icon(Icons.arrow_forward_ios_outlined),
-                style: ElevatedButton.styleFrom(primary: Colors.grey),
-              ),
+                  style: ElevatedButton.styleFrom(primary: Colors.grey),
+                ),
               ),
             ],
           ),
