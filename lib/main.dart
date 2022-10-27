@@ -14,13 +14,19 @@ import 'package:medapp_eksad/screen/contact_us/contact_us.dart';
 import 'package:medapp_eksad/screen/solution.dart';
 import 'package:medapp_eksad/screen_user/demo_user.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  configureApp();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
+}
+
+void configureApp() {
+  setUrlStrategy(PathUrlStrategy());
 }
 
 class MyApp extends StatelessWidget {
